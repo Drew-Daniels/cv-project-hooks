@@ -1,11 +1,10 @@
-import './App.css';
+import React, { Component } from 'react';
+import GeneralInfo from './components/GeneralInfo';
+import EducationalExp from './components/EducationalExp';
+import ProfessionalExp from './components/ProfessionalExp';
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
 
-    </div>
-  );
 }
 
 export default App;
