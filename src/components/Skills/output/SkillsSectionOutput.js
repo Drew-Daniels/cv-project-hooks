@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import addEntryIcon from '../../../images/icons/add-entry-icon.svg';
 import SkillsEntryOutput from './SkillsEntryOutput';
 
 class SkillsSectionOutput extends Component {
@@ -10,7 +9,7 @@ class SkillsSectionOutput extends Component {
   render() {
 
     return (
-      <section className='form-section'>
+      <section className='preview-section'>
 
       </section>
     );

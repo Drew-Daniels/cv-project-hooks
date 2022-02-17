@@ -49,16 +49,16 @@ class App extends Component {
                 </div>
                 <div className='preview'>
                   <GeneralInfoSectionOutput />
-                  {/* <EducationalExpSectionOutput />
+                  <EducationalExpSectionOutput />
                   <ProfessionalExpSectionOutput />
-                  <SkillsSectionOutput /> */}
+                  <SkillsSectionOutput />
                 </div>
               </div>
             </div>
             <div className='form-submit-btn-container'>
-                  <button className='btn-base'>
-                    <span>Submit</span>
-                  </button>
+              <button className='btn-base'>
+                <span>Submit</span>
+              </button>
             </div>
           </div>
         </div>
