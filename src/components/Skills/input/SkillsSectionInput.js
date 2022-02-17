@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import addEntryIcon from '../../images/icons/add-entry-icon.svg';
-import SkillsEntry from './SkillsEntry';
+import addEntryIcon from '../../../images/icons/add-entry-icon.svg';
+import SkillsEntryInput from './SkillsEntryInput';
 
-class SkillsSection extends Component {
+class SkillsSectionInput extends Component {
   constructor(prop) {
     super();
   }
@@ -11,7 +11,7 @@ class SkillsSection extends Component {
 
     return (
       <section className='form-section'>
-        <SkillsEntry />
+        <SkillsEntryInput />
         <button className='btn-base'>
           <span>Add another Skill</span>
           <img src={addEntryIcon} alt="Addition Sign"></img>
@@ -21,4 +21,4 @@ class SkillsSection extends Component {
   }
 }
 
-export default SkillsSection;
+export default SkillsSectionInput;

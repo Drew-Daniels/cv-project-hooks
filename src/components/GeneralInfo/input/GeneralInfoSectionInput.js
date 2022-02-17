@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-class GeneralInfoSection extends Component {
+class GeneralInfoSectionInput extends Component {
   constructor(prop) {
     super();
   }
@@ -24,4 +24,4 @@ class GeneralInfoSection extends Component {
   }
 }
 
-export default GeneralInfoSection;
+export default GeneralInfoSectionInput;

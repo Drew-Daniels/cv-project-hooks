@@ -9,7 +9,7 @@ class HeaderSection extends Component {
   render() {
     return (
       <header className='header'>
-        <img src={cvApplicationIcon} alt='Briefcase'></img>
+        <img src={cvApplicationIcon} alt='Briefcase' className='header-image'></img>
         <h1>CV Application</h1>
       </header>
     )

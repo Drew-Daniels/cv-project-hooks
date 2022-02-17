@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import addEntryIcon from '../../images/icons/add-entry-icon.svg';
-import ProfessionalExpEntry from './ProfessionalExpEntry';
+import addEntryIcon from '../../../images/icons/add-entry-icon.svg';
+import ProfessionalExpEntryInput from './ProfessionalExpEntryInput';
 
-class ProfessionalExpSection extends Component {
+class ProfessionalExpSectionInput extends Component {
   constructor(props) {
     super();
     
@@ -11,7 +11,7 @@ class ProfessionalExpSection extends Component {
   render() {
     return (
       <section className='form-section'>
-        <ProfessionalExpEntry />
+        <ProfessionalExpEntryInput />
         <button className="btn-base">
           <img src={addEntryIcon} alt="Addition Sign"></img>
           <span>Add another Professional Experience Entry</span>
@@ -21,4 +21,4 @@ class ProfessionalExpSection extends Component {
   }
 };
 
-export default ProfessionalExpSection;
+export default ProfessionalExpSectionInput;

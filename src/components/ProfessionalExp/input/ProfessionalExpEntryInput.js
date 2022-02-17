@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-class ProfessionalExpEntry extends Component {
+class ProfessionalExpEntryInput extends Component {
   constructor(props) {
     super();
     
@@ -23,4 +23,4 @@ class ProfessionalExpEntry extends Component {
   }
 };
 
-export default ProfessionalExpEntry;
+export default ProfessionalExpEntryInput;

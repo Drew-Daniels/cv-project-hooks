@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-class SkillsEntry extends Component {
+class SkillsEntryInput extends Component {
   constructor(prop) {
     super();
   }
@@ -16,4 +16,4 @@ class SkillsEntry extends Component {
   }
 }
 
-export default SkillsEntry;
+export default SkillsEntryInput;
