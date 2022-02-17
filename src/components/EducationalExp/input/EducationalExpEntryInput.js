@@ -12,10 +12,31 @@ class EducationalExpEntryInput extends Component {
         <input id='school-name' type='text'></input>
         <label htmlFor='major'>Major:</label>
         <input id='major'></input>
-        <label htmlFor='from-year'>From Year:</label>
-        <input id='from-year' type='number' min='1900' max='2099' step='1' defaultValue={2022}></input>
-        <label htmlFor='to-year'>To Year:</label>
-        <input id='to-year' type='number' min='1900' max='2099' step='1' defaultValue={2022}></input>
+        <div>
+          <p className='degree-type-header'>Degree Type:</p>
+          <div className='degree-types-container'>
+            <div>
+              <input id='degree-type-1' type='radio' name='degree-type' value='associates'></input>
+              <label htmlFor='degree-type-1'>Associates</label>
+            </div>
+            <div>
+              <input id='degree-type-2' type='radio' name='degree-type' value='bachelors'></input>
+              <label htmlFor='degree-type-2'>Bachelors</label>
+            </div>
+            <div>
+              <input id='degree-type-3' type='radio' name='degree-type' value='masters'></input>
+              <label htmlFor='degree-type-3'>Masters</label>
+            </div>
+            <div>
+              <input id='degree-type-4' type='radio' name='degree-type' value='doctorate'></input>
+              <label htmlFor='degree-type-4'>Doctoral</label>
+            </div>
+          </div>
+        </div>
+        <label htmlFor='gpa'>GPA:</label>
+        <input id='gpa' type='number' step='0.01' min='0'></input>
+        <label htmlFor='graduation-date'>Graduation Date:</label>
+        <input id='graduation-date' type='date'></input>
       </div>
     )
   }

@@ -10,7 +10,8 @@ class SkillsSectionOutput extends Component {
 
     return (
       <section className='preview-section'>
-
+        <h3 className='preview-section-header'>Skills</h3>
+        
       </section>
     );
   }

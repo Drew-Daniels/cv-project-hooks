@@ -10,14 +10,17 @@ class GeneralInfoSectionOutput extends Component {
     return (
       <section className='preview-section'>
         <div className='full-name-container-preview'>
-          <span className='first-name-preview'>Drew</span>
-          <span className='last-name-preview'>Daniels</span>
+          <span id='first-name-preview'>FirstName</span>
+          <span id='last-name-preview'>LastName</span>
         </div>
         <div className='phone-number-container-preview'>
-          <span class='phone-number-preview'>+1-xxx-xxx-xxxx</span>
+          <span id='phone-number-preview'>+1-xxx-xxx-xxxx</span>
         </div>
         <div className='email-container-preview'>
-          <span className='email-preview'>fakeemail@fakedomain.com</span>
+          <span id='email-preview'>email@emailprovider.com</span>
+        </div>
+        <div className='linked-in-container-preview'>
+          <span id='linkedin-url-preview'>https://www.linkedin.com/in/firstname-lastname</span>
         </div>
       </section>
     );

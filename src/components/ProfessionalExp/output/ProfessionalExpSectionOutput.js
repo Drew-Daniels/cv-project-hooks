@@ -10,7 +10,8 @@ class ProfessionalExpSectionOutput extends Component {
   render() {
     return (
       <section className='preview-section'>
-
+        <h3 className='preview-section-header'>Business Experience</h3>
+        
       </section>
     )
   }

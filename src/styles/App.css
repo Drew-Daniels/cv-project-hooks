@@ -31,9 +31,18 @@ html, body, button {
 }
 .preview-container {
   width: 50%;
+  padding: 0 1em;
+}
+.preview {
+  font-family: 'calibri', sans-serif;
+}
+.preview-section-header {
+  text-decoration: underline;
+  text-transform: uppercase;
 }
 .form-container {
   width: 50%;
+  padding: 0 1em;
 }
 .header-container {
   display: flex;

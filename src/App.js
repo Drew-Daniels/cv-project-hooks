@@ -19,6 +19,7 @@ import './styles/EducationalExp.css';
 import './styles/GeneralInfo.css';
 import './styles/ProfessionalExp.css';
 import './styles/Reset.css';
+import CVForm from './components/CVForm';
 
 class App extends Component {
   constructor(props) {
@@ -36,12 +37,7 @@ class App extends Component {
                 <div className='header-container'>
                   <h2>Entries</h2>
                 </div>
-                <form className='form'>
-                  <GeneralInfoSectionInput />
-                  <EducationalExpSectionInput />
-                  <ProfessionalExpSectionInput />
-                  <SkillsSectionInput />
-                </form>
+                <CVForm/>
               </div>
               <div className='preview-container'>
                 <div className='header-container'>
