@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import HeaderSection from './components/HeaderSection';
+import FooterSection from './components/FooterSection';
+// import form components
+import CVForm from './components/CVForm';
 
 // import preview components
 import GeneralInfoSectionOutput from './components/GeneralInfo/output/GeneralnfoSectionOutput';
@@ -7,15 +10,15 @@ import EducationalExpSectionOutput from './components/EducationalExp/output/Educ
 import ProfessionalExpSectionOutput from './components/ProfessionalExp/output/ProfessionalExpSectionOutput';
 import SkillsSectionOutput from './components/Skills/output/SkillsSectionOutput';
 
-import FooterSection from './components/FooterSection';
-
-
+// import styling
 import './styles/App.css';
 import './styles/EducationalExp.css';
 import './styles/GeneralInfo.css';
 import './styles/ProfessionalExp.css';
 import './styles/Reset.css';
-import CVForm from './components/CVForm';
+
+// import images
+import formSubmitIcon from './images/icons/form-submit-icon.svg';
 
 class App extends Component {
   constructor(props) {
@@ -49,7 +52,8 @@ class App extends Component {
             </div>
             <div className='form-submit-btn-container'>
               <button className='btn-base'>
-                <span>Submit</span>
+                <img src={formSubmitIcon} alt='printer'></img>
+                <span>Print</span>
               </button>
             </div>
           </div>

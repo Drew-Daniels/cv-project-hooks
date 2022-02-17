@@ -45,20 +45,26 @@ class CVForm extends Component {
       <form className='form' onSubmit={this.handleSubmit}>
         <section className='form-section'>
           <h3>General</h3>
-          <label htmlFor='first-name'>First Name:</label>
-          <input id='first-name' name='firstName' type='text' onChange={this.handleChange}/>
-
-          <label htmlFor='last-name'>Last Name:</label>
-          <input id='last-name' name='lastName' type='text' onChange={this.handleChange}/>
-
+          <div className='form-control'>
+            <label htmlFor='first-name'>First Name:</label>
+            <input id='first-name' name='firstName' type='text' onChange={this.handleChange}/>
+          </div>
+          <div className='form-control'>
+            <label htmlFor='last-name'>Last Name:</label>
+            <input id='last-name' name='lastName' type='text' onChange={this.handleChange}/>
+          </div>
+          <div className='form-control'>
           <label htmlFor='phone-number'>Phone Number:</label>
           <input id='phone-number' name='phoneNumber' type='tel' onChange={this.handleChange}/>
-
-          <label htmlFor='email'>Email:</label>
-          <input id='email' name='email' type='text' onChange={this.handleChange}/>
-
-          <label htmlFor='linkedin-url'>LinkedIn URL:</label>
-          <input id='linkedin-url' name='linkedInURL' type='text' onChange={this.handleChange}/>
+          </div>
+          <div className='form-control'>
+            <label htmlFor='email'>Email:</label>
+            <input id='email' name='email' type='text' onChange={this.handleChange}/>
+          </div>
+          <div className='form-control'>
+            <label htmlFor='linkedin-url'>LinkedIn URL:</label>
+            <input id='linkedin-url' name='linkedInURL' type='text' onChange={this.handleChange}/>
+          </div>
         </section>
         <section className='form-section'>
         <h3>Educational Experience</h3>
@@ -71,7 +77,7 @@ class CVForm extends Component {
           </div>
         </section>        
         <section className='form-section'>
-          <h3>General</h3>
+          <h3>Professional Experience</h3>
           <ProfessionalExpEntryInput />
           <div className='form-submit-btn-container'>
             <button className="btn-base btn-form">

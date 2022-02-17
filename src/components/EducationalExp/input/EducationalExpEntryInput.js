@@ -8,11 +8,15 @@ class EducationalExpEntryInput extends Component {
 
     return (
       <div className='form-entry'>
-        <label htmlFor='school-name'>School Name:</label>
-        <input id='school-name' type='text'></input>
-        <label htmlFor='major'>Major:</label>
-        <input id='major'></input>
-        <div>
+        <div className='form-control'>
+          <label htmlFor='school-name'>School Name:</label>
+          <input id='school-name' type='text'></input>
+        </div>
+        <div className='form-control'>
+          <label htmlFor='major'>Major:</label>
+          <input id='major'></input>
+        </div>
+        <div className='form-control'>
           <p className='degree-type-header'>Degree Type:</p>
           <div className='degree-types-container'>
             <div>
@@ -33,10 +37,14 @@ class EducationalExpEntryInput extends Component {
             </div>
           </div>
         </div>
-        <label htmlFor='gpa'>GPA:</label>
-        <input id='gpa' type='number' step='0.01' min='0'></input>
-        <label htmlFor='graduation-date'>Graduation Date:</label>
-        <input id='graduation-date' type='date'></input>
+        <div className='form-control'>
+          <label htmlFor='gpa'>GPA:</label>
+          <input id='gpa' type='number' step='0.01' min='0'></input>
+        </div>
+        <div className='form-control'>
+          <label htmlFor='graduation-date'>Graduation Date:</label>
+          <input id='graduation-date' type='date'></input>
+        </div>
       </div>
     )
   }

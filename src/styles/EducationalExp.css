@@ -1,6 +1,6 @@
 .degree-types-container {
   display: flex;
-  flex-direction: column;
+  margin-bottom: 1em;
 }
 .education-line {
   display: flex;
