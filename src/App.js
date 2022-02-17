@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import HeaderSection from './components/HeaderSection';
-// import form input components
-import GeneralInfoSectionInput from './components/GeneralInfo/input/GeneralInfoSectionInput';
-import EducationalExpSectionInput from './components/EducationalExp/input/EducationalExpSectionInput';
-import ProfessionalExpSectionInput from './components/ProfessionalExp/input/ProfessionalExpSectionInput';
-import SkillsSectionInput from './components/Skills/input/SkillsSectionInput';
+
 // import preview components
 import GeneralInfoSectionOutput from './components/GeneralInfo/output/GeneralnfoSectionOutput';
 import EducationalExpSectionOutput from './components/EducationalExp/output/EducationalExpSectionOutput';

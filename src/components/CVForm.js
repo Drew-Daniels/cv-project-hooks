@@ -63,18 +63,22 @@ class CVForm extends Component {
         <section className='form-section'>
         <h3>Educational Experience</h3>
           <EducationalExpEntryInput />
-          <button className='btn-base'>
-            <img src={addEntryIcon} alt='Addition sign'></img>
-            <span>Add another Education Experience Entry</span>
-          </button>
+          <div className='form-submit-btn-container'>
+            <button className='btn-base btn-form'>
+              <img src={addEntryIcon} alt='Addition sign'></img>
+              <span>Add another Education Experience Entry</span>
+            </button>
+          </div>
         </section>        
         <section className='form-section'>
-          <h3>Professional Experience</h3>
+          <h3>General</h3>
           <ProfessionalExpEntryInput />
-          <button className="btn-base">
-            <img src={addEntryIcon} alt="Addition Sign"></img>
-            <span>Add another Professional Experience Entry</span>
-          </button>
+          <div className='form-submit-btn-container'>
+            <button className="btn-base btn-form">
+              <img src={addEntryIcon} alt="Addition Sign"></img>
+              <span>Add another Professional Experience Entry</span>
+            </button>
+          </div>
         </section>
       </form>
     )
