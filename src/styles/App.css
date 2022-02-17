@@ -1,0 +1,50 @@
+* > {
+  box-sizing: border-box;
+}
+html, body, button {
+  font-family: 'Roboto', sans-serif;
+}
+.content-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 5em;
+}
+.github-profile-container {
+  display: flex;
+  justify-content: center;
+}
+.github-profile-container > * {
+  padding-right: 0.25em;
+}
+.github-icon {
+  height: 2em;
+}
+.form-section {
+  display: flex;
+  flex-direction: column;
+}
+.form-submit-btn-container {
+  display: flex;
+  justify-content: center;
+}
+.form-entry {
+  display: flex;
+  flex-direction: column;
+}
+.btn-base {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+}

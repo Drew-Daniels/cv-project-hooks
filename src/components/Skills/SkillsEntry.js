@@ -8,8 +8,9 @@ class SkillsEntry extends Component {
   render() {
 
     return (
-      <div>
-
+      <div className='form-entry'>
+        <label htmlFor='skill'>Skill:</label>
+        <input id='skill' type='text'></input>
       </div>
     );
   }
