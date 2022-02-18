@@ -42,7 +42,7 @@ class CVForm extends Component {
 
   render() {
     return (
-      <form className='form' onSubmit={this.handleSubmit}>
+      <form id='form' onSubmit={this.handleSubmit}>
         <section className='form-section'>
           <h3>General</h3>
           <div className='form-control'>

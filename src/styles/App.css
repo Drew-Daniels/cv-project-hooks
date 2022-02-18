@@ -4,6 +4,18 @@
 html, body, button {
   font-family: 'Roboto', sans-serif;
 }
+@media print {
+  .form-container, .header, .header-container, .footer, .form-submit-btn-container {
+    display: none !important;
+  }
+  .preview-container {
+    width: 100% !important;
+  }
+}
+@page {
+  size: auto;
+  margin: 3mm 0 0 0;
+}
 .content-container {
   display: flex;
   flex-direction: column;
@@ -25,6 +37,7 @@ html, body, button {
 .header {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .header-image {
   height: 4em;
@@ -36,7 +49,7 @@ html, body, button {
   padding: 0 1em;
   margin-left: 1em;
 }
-.preview {
+#preview {
   font-family: 'calibri', sans-serif;
   padding: 0 1em;
 }
@@ -68,9 +81,6 @@ html, body, button {
 }
 .github-icon {
   height: 2em;
-}
-.form {
-
 }
 .form-section {
   display: flex;
