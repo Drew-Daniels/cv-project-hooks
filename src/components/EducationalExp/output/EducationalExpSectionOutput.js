@@ -6,12 +6,19 @@ class EducationalExpSectionOutput extends Component {
     super()
   }
   render() {
-    
+    const {educationalExps} = this.props;
     return (
       <section id='education-preview-section' className='preview-section'>
-        <EducationalExpEntryOutput 
-          // pass in state as props here
-        />
+        <h3 className='preview-section-header'>Educational Experience</h3>
+        <ul>
+          {educationalExps.map((educationalExp) => {
+            return (
+              <li key={educationalExp.id}>
+                <EducationalExpEntryOutput educationExp = {educationalExp}/>
+              </li>
+            )
+          })}
+        </ul>
       </section>
     )
   }

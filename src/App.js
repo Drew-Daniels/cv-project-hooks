@@ -61,13 +61,30 @@ class App extends Component {
       skills: [],
     };
 
-    // bind functions
+    // BIND callbacks
+    this.handleSubmit = this.handleSubmit.bind(this);
+    // General callbacks
     this.handleGeneralInfoChange = this.handleGeneralInfoChange.bind(this);
+    // Educational Exp callbacks
+    this.handleEducationalExpChange = this.handleEducationalExpChange.bind(this);
+    this.handleEducationExpSubmit = this.handleEducationalExpSubmit.bind(this);
+    // Professional Exp callbacks
+
+    // Skill callbacks
     this.handleSkillChange = this.handleSkillChange.bind(this);
     this.handleSkillSubmit = this.handleSkillSubmit.bind(this);
+    // Print preview
     this.printPreview = this.printPreview.bind(this);
   };
+  
+  handleSubmit(event) {
+    event.preventDefault();
+    const target = event.target;
+    if (target.type === 'input') {
 
+    }
+  }
+  // General Info callbacks
   handleGeneralInfoChange(event) {
     const attr = event.target.name;
     const value = event.target.value;
@@ -75,17 +92,45 @@ class App extends Component {
       [attr]: value
     });
   };
+  
+  // Educational Exp callbacks
+  handleEducationalExpChange(event) {
+    event.preventDefault();
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      educationalExp: {
+        [name]: value,
+      }
+    });
+  };
+  handleEducationalExpSubmit(event) {
+    event.preventDefault();
+    this.setState({
+      educationalExps: this.state.educationalExps.concat(this.educationalExp),
+      educationalExp: {
+        schoolName: '',
+        major: '',
+        degreeType: '',
+        gpa: 4.00,
+        graduationDate: new Date(),
+        id: uniqid(),
+      },
+    });
+  };
 
+  // Professional Exp callabacks
+
+  // Skills callbacks
   handleSkillChange(event) {
     event.preventDefault();
     this.setState({
       skill: {
         skillDescription: event.target.value,
-        id: uniqid(),
+        id: this.state.skill.id,
       }
     });
   };
-
   handleSkillSubmit(event) {
     event.preventDefault();
     this.setState({
@@ -127,16 +172,18 @@ class App extends Component {
                   <GeneralInfoSectionInput 
                     changeHandler = {this.handleGeneralInfoChange}
                   />
-                  {/* <h3 className='form-section-header'>Educational Experience</h3>
+                  <h3 className='form-section-header'>Educational Experience</h3>
                   <EducationalExpSectionInput 
-
+                    changeHandler = {this.handleEducationalExpChange}
+                    submitHandler = {this.handleEducationalExpSubmit}
                   />
-                  <h3 className='form-section-header'>Professional Experience</h3>
+                  {/* <h3 className='form-section-header'>Professional Experience</h3>
                   <ProfessionalExpSectionInput 
 
                   /> */}
                   <h3 className='form-section-header'>Skills</h3>
                   <SkillsSectionInput
+                    skillDescription = {this.state.skill.skillDescription}
                     changeHandler = {this.handleSkillChange}
                     submitHandler = {this.handleSkillSubmit}
                   />

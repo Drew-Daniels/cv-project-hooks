@@ -7,12 +7,12 @@ class SkillsEntryInput extends Component {
   }
 
   render() {
-
+    const {skillDescription} = this.props;
     return (
       <div className='form-entry'>
         <div className='form-control'>
           <label htmlFor='skill-description'>Skill Description:</label>
-          <input id='skill-description' type='text' name='skillDescription' onChange={this.props.changeHandler}></input>
+          <input id='skill-description' type='text' name='skillDescription' value={skillDescription} onChange={this.props.changeHandler}></input>
         </div>
       </div>
     );
