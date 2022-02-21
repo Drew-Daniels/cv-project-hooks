@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import uniqid from 'uniqid';
 
 import HeaderSection from './components/HeaderSection';
 import FooterSection from './components/FooterSection';
 // import form components
 import CVForm from './components/CVForm';
+import GeneralInfoSectionInput from './components/GeneralInfo/input/GeneralInfoSectionInput';
+import EducationalExpSectionInput from './components/EducationalExp/input/EducationalExpSectionInput';
+import ProfessionalExpSectionInput from './components/ProfessionalExp/input/ProfessionalExpSectionInput';
+import SkillsSectionInput from './components/Skills/input/SkillsSectionInput';
 
 // import preview components
 import GeneralInfoSectionOutput from './components/GeneralInfo/output/GeneralnfoSectionOutput';
@@ -25,48 +30,88 @@ class App extends Component {
   constructor(props) {
     super();
 
+    this.state = {
+      firstName: '',
+      lastName: '',
+      phoneNumber: '',
+      email: '',
+      linkedInURL: '',
+      educationalExp: {
+        schoolName: '',
+        major: '',
+        degreeType: '',
+        gpa: 4.00,
+        graduationDate: new Date(),
+        id: uniqid(),
+      },
+      educationalExps: [],
+      professionalExp: {
+        companyName: '',
+        positionTitle: '',
+        positionTasks: [],
+        fromDate: new Date(),
+        toDate: new Date(),
+        id: uniqid(),
+      },
+      professionalExps: [],
+      skill: {
+        skillDescription: '',
+        id: uniqid(),
+      },
+      skills: [],
+    };
+
+    // bind functions
+    this.handleGeneralInfoChange = this.handleGeneralInfoChange.bind(this);
+    this.handleSkillChange = this.handleSkillChange.bind(this);
+    this.handleSkillSubmit = this.handleSkillSubmit.bind(this);
     this.printPreview = this.printPreview.bind(this);
   };
 
+  handleGeneralInfoChange(event) {
+    const attr = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [attr]: value
+    });
+  };
+
+  handleSkillChange(event) {
+    event.preventDefault();
+    this.setState({
+      skill: {
+        skillDescription: event.target.value,
+        id: uniqid(),
+      }
+    });
+  };
+
+  handleSkillSubmit(event) {
+    event.preventDefault();
+    this.setState({
+      skills: this.state.skills.concat(this.state.skill),
+      skill: {
+        skillDescription: '',
+        id: uniqid(),
+      }
+    });
+  };
+
   printPreview() {
-
-    // let myWindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
-    // myWindow.document.write(`<html><head>`);
-
-    // // add in styling
-    // const baseCSSPath = './styles/';
-
-    // const resetCSSPath = baseCSSPath + 'Reset.css';
-    // const appcSSPath = baseCSSPath + 'App.css';
-    // const generalInfoCSSPath = baseCSSPath + 'GeneralInfo.css';
-    // const educationalExpCSSPath = baseCSSPath + 'EducationalExp.css';
-    // const professionalExpCSSPath = baseCSSPath + 'ProfessionalExp.css';
-
-    // myWindow.document.write(`<link rel='stylesheet' href='${resetCSSPath}'/>`);
-    // myWindow.document.write(`<link rel='stylesheet' href='${appcSSPath}'/>`);
-    // myWindow.document.write(`<link rel='stylesheet' href='${generalInfoCSSPath}'/>`);
-    // myWindow.document.write(`<link rel='stylesheet' href='${educationalExpCSSPath}'/>`);
-    // myWindow.document.write(`<link rel='stylesheet' href='${professionalExpCSSPath}'/>`);
-    
-    // myWindow.document.write('</head>');
-    // // add title
-    // myWindow.document.title = 'CV';
-    // // write content
-    // myWindow.document.write('<body >')
-    // myWindow.document.write(document.getElementById('preview').innerHTML);
-    // myWindow.document.write('</body></html>');
-
-    // myWindow.document.close();
-    // myWindow.focus();
-
-    // myWindow.print();
-    // myWindow.close();
-
-    // return true;
-
     window.print();
   }
   render() {
+    const { 
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+      linkedInURL, 
+      educationalExps, 
+      professionalExps, 
+      skills 
+    } = this.state;
+
     return (
       <div className='content-container'>
         <div className='content'>
@@ -77,17 +122,41 @@ class App extends Component {
                 <div className='header-container'>
                   <h2>Entries</h2>
                 </div>
-                <CVForm/>
+                <form id='form' onSubmit={this.handleSubmit}>
+                  <h3 className='form-section-header'>General</h3>
+                  <GeneralInfoSectionInput 
+                    changeHandler = {this.handleGeneralInfoChange}
+                  />
+                  {/* <h3 className='form-section-header'>Educational Experience</h3>
+                  <EducationalExpSectionInput 
+
+                  />
+                  <h3 className='form-section-header'>Professional Experience</h3>
+                  <ProfessionalExpSectionInput 
+
+                  /> */}
+                  <h3 className='form-section-header'>Skills</h3>
+                  <SkillsSectionInput
+                    changeHandler = {this.handleSkillChange}
+                    submitHandler = {this.handleSkillSubmit}
+                  />
+              </form>
               </div>
               <div className='preview-container'>
                 <div className='header-container'>
                   <h2>Preview</h2>
                 </div>
                 <div id='preview'>
-                  <GeneralInfoSectionOutput />
-                  <EducationalExpSectionOutput />
-                  <ProfessionalExpSectionOutput />
-                  <SkillsSectionOutput />
+                  <GeneralInfoSectionOutput 
+                    firstName = {firstName}
+                    lastName = {lastName}
+                    phoneNumber = {phoneNumber}
+                    email = {email}
+                    linkedInURL = {linkedInURL}
+                  />
+                  <EducationalExpSectionOutput educationalExps = { educationalExps }/>
+                  <ProfessionalExpSectionOutput professionalExps = { professionalExps }/>
+                  <SkillsSectionOutput skills = { skills }/>
                 </div>
               </div>
             </div>

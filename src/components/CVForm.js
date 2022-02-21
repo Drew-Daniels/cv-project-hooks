@@ -1,7 +1,9 @@
 import { Component } from 'react';
-import EducationalExpEntryInput from './EducationalExp/input/EducationalExpEntryInput';
-import ProfessionalExpEntryInput from './ProfessionalExp/input/ProfessionalExpEntryInput';
-import addEntryIcon from '../images/icons/add-entry-icon.svg';
+
+import GeneralInfoSectionInput from './GeneralInfo/input/GeneralInfoSectionInput';
+import EducationalExpSectionInput from './EducationalExp/input/EducationalExpSectionInput';
+import ProfessionalExpSectionInput from './ProfessionalExp/input/ProfessionalExpSectionInput';
+import SkillsSectionInput from './Skills/input/SkillsSectionInput';
 
 class CVForm extends Component {
   constructor(props) {
@@ -34,6 +36,7 @@ class CVForm extends Component {
 
     // update previews
     document.querySelector('#' + target.id + '-preview').textContent = value;
+    console.log('here');
   }
 
   handleSubmit(event) {
@@ -43,49 +46,22 @@ class CVForm extends Component {
   render() {
     return (
       <form id='form' onSubmit={this.handleSubmit}>
-        <section className='form-section'>
-          <h3>General</h3>
-          <div className='form-control'>
-            <label htmlFor='first-name'>First Name:</label>
-            <input id='first-name' name='firstName' type='text' onChange={this.handleChange}/>
-          </div>
-          <div className='form-control'>
-            <label htmlFor='last-name'>Last Name:</label>
-            <input id='last-name' name='lastName' type='text' onChange={this.handleChange}/>
-          </div>
-          <div className='form-control'>
-          <label htmlFor='phone-number'>Phone Number:</label>
-          <input id='phone-number' name='phoneNumber' type='tel' onChange={this.handleChange}/>
-          </div>
-          <div className='form-control'>
-            <label htmlFor='email'>Email:</label>
-            <input id='email' name='email' type='text' onChange={this.handleChange}/>
-          </div>
-          <div className='form-control'>
-            <label htmlFor='linkedin-url'>LinkedIn URL:</label>
-            <input id='linkedin-url' name='linkedInURL' type='text' onChange={this.handleChange}/>
-          </div>
-        </section>
-        <section className='form-section'>
-        <h3>Educational Experience</h3>
-          <EducationalExpEntryInput />
-          <div className='form-submit-btn-container'>
-            <button className='btn-base btn-form'>
-              <img src={addEntryIcon} alt='Addition sign'></img>
-              <span>Add another Education Experience Entry</span>
-            </button>
-          </div>
-        </section>        
-        <section className='form-section'>
-          <h3>Professional Experience</h3>
-          <ProfessionalExpEntryInput />
-          <div className='form-submit-btn-container'>
-            <button className="btn-base btn-form">
-              <img src={addEntryIcon} alt="Addition Sign"></img>
-              <span>Add another Professional Experience Entry</span>
-            </button>
-          </div>
-        </section>
+        <h3 className='form-section-header'>General</h3>
+        <GeneralInfoSectionInput 
+          changeHandler={this.handleChange}
+        />
+        <h3 className='form-section-header'>Educational Experience</h3>
+        <EducationalExpSectionInput 
+
+        />
+        <h3 className='form-section-header'>Professional Experience</h3>
+        <ProfessionalExpSectionInput 
+
+        />
+        <h3 className='form-section-header'>Skills</h3>
+        <SkillsSectionInput 
+
+        />
       </form>
     )
   };

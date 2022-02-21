@@ -9,9 +9,11 @@ class ProfessionalExpSectionOutput extends Component {
 
   render() {
     return (
-      <section className='preview-section'>
+      <section id='professional-preview-section' className='preview-section'>
         <h3 className='preview-section-header'>Business Experience</h3>
-        
+        <ProfessionalExpEntryOutput 
+          // Pass state from form to output
+        />
       </section>
     )
   }

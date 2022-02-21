@@ -1,26 +1,26 @@
 import { Component } from 'react';
 
 class GeneralInfoSectionOutput extends Component {
-  constructor(prop) {
+  constructor(props) {
     super();
   }
 
   render() {
-
+    const {firstName, lastName, phoneNumber, email, linkedInURL} = this.props;
     return (
-      <section className='preview-section'>
+      <section id='general-preview-section' className='preview-section'>
         <div className='full-name-container-preview'>
-          <span id='first-name-preview'>FirstName</span>
-          <span id='last-name-preview'>LastName</span>
+          <span id='first-name-preview'>{firstName}</span>
+          <span id='last-name-preview'>{lastName}</span>
         </div>
         <div className='phone-number-container-preview'>
-          <span id='phone-number-preview'>+1-xxx-xxx-xxxx</span>
+          <span id='phone-number-preview'>{phoneNumber}</span>
         </div>
         <div className='email-container-preview'>
-          <span id='email-preview'>email@emailprovider.com</span>
+          <span id='email-preview'>{email}</span>
         </div>
         <div className='linked-in-container-preview'>
-          <span id='linkedin-url-preview'>https://www.linkedin.com/in/firstname-lastname</span>
+          <span id='linkedin-url-preview'>{linkedInURL}</span>
         </div>
       </section>
     );

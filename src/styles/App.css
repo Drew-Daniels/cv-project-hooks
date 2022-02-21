@@ -53,6 +53,9 @@ html, body, button {
   font-family: 'calibri', sans-serif;
   padding: 0 1em;
 }
+.preview-section {
+  margin-bottom: 1em;
+}
 .preview-section-header {
   text-decoration: underline;
   text-transform: uppercase;
@@ -85,6 +88,11 @@ html, body, button {
 .form-section {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1em;
+}
+.form-section-header {
+  text-decoration: underline;
+  margin-bottom: .5em;
 }
 .form-submit-btn-container {
   display: flex;
@@ -103,4 +111,5 @@ html, body, button {
 .form-control {
   display: flex;
   justify-content: space-between;
+  margin-bottom:.5em;
 }

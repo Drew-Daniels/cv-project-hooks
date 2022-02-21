@@ -1,17 +1,20 @@
 import { Component } from 'react';
-import SkillsEntryOutput from './SkillsEntryOutput';
 
 class SkillsSectionOutput extends Component {
-  constructor(prop) {
+  constructor(props) {
     super();
   }
 
   render() {
-
+    const {skills} = this.props;
     return (
-      <section className='preview-section'>
+      <section id='skills-preview-section' className='preview-section'>
         <h3 className='preview-section-header'>Skills</h3>
-        
+        <ul>
+          {skills.map((skill) => {
+            return <li key={skill.id}>{skill.skillDescription}</li>;
+          })}
+        </ul>
       </section>
     );
   }

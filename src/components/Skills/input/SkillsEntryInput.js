@@ -1,16 +1,19 @@
 import { Component } from 'react';
 
 class SkillsEntryInput extends Component {
-  constructor(prop) {
+  constructor(props) {
     super();
+
   }
 
   render() {
 
     return (
       <div className='form-entry'>
-        <label htmlFor='skill'>Skill:</label>
-        <input id='skill' type='text'></input>
+        <div className='form-control'>
+          <label htmlFor='skill-description'>Skill Description:</label>
+          <input id='skill-description' type='text' name='skillDescription' onChange={this.props.changeHandler}></input>
+        </div>
       </div>
     );
   }

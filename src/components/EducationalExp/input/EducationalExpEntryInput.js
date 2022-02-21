@@ -10,11 +10,11 @@ class EducationalExpEntryInput extends Component {
       <div className='form-entry'>
         <div className='form-control'>
           <label htmlFor='school-name'>School Name:</label>
-          <input id='school-name' type='text'></input>
+          <input id='school-name' type='text' onChange={this.props.changeHandler}></input>
         </div>
         <div className='form-control'>
           <label htmlFor='major'>Major:</label>
-          <input id='major'></input>
+          <input id='major' onChange={this.props.changeHandler}></input>
         </div>
         <div className='form-control'>
           <p className='degree-type-header'>Degree Type:</p>
@@ -39,11 +39,11 @@ class EducationalExpEntryInput extends Component {
         </div>
         <div className='form-control'>
           <label htmlFor='gpa'>GPA:</label>
-          <input id='gpa' type='number' step='0.01' min='0'></input>
+          <input id='gpa' type='number' value='4.00' step='0.01' min='0' onChange={this.props.changeHandler}></input>
         </div>
         <div className='form-control'>
           <label htmlFor='graduation-date'>Graduation Date:</label>
-          <input id='graduation-date' type='date'></input>
+          <input id='graduation-date' type='date' onChange={this.props.changeHandler}></input>
         </div>
       </div>
     )
