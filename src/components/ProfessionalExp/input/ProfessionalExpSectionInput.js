@@ -45,7 +45,7 @@ class ProfessionalExpSectionInput extends Component {
         <div className='form-submit-btn-container'>
           <button className="btn-base btn-form" onClick={this.handleSubmit}>
             <img src={addEntryIcon} alt="Addition Sign"></img>
-            <span>Add another Professional Experience Entry</span>
+            <span>Submit</span>
           </button>
         </div>
       </section>

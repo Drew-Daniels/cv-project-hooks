@@ -12,11 +12,15 @@ class EducationalExpSectionOutput extends Component {
         <h3 className='preview-section-header'>Educational Experience</h3>
         <ul>
           {educationalExps.map((educationalExp) => {
-            return (
-              <li key={educationalExp.id}>
-                <EducationalExpEntryOutput educationExp = {educationalExp}/>
-              </li>
-            )
+            return <li key={educationalExp.id}>
+                    <EducationalExpEntryOutput 
+                      schoolname={educationalExp.schoolName}
+                      major={educationalExp.major}
+                      degreeType={educationalExp.degreeType}
+                      gpa={educationalExp.gpa}
+                      graduationDate={educationalExp.graduationDate}
+                    />
+                   </li>
           })}
         </ul>
       </section>

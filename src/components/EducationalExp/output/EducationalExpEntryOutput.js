@@ -27,7 +27,7 @@ class EducationalExpEntryOutput extends Component {
             <span id='major-preview'>{major}</span>
           </div>
           <div>
-            <span>GPA: </span>
+            <span>GPA:</span>
             <span id='gpa-preview'>{gpa}</span>
           </div>
         </div>

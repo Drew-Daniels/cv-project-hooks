@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
+import { format } from 'date-fns';
 
 import HeaderSection from './components/HeaderSection';
 import FooterSection from './components/FooterSection';
 // import form components
-import CVForm from './components/CVForm';
 import GeneralInfoSectionInput from './components/GeneralInfo/input/GeneralInfoSectionInput';
 import EducationalExpSectionInput from './components/EducationalExp/input/EducationalExpSectionInput';
 import ProfessionalExpSectionInput from './components/ProfessionalExp/input/ProfessionalExpSectionInput';
@@ -31,43 +31,63 @@ class App extends Component {
     super();
 
     this.state = {
+      // General Info
       firstName: '',
       lastName: '',
       phoneNumber: '',
       email: '',
       linkedInURL: '',
-      educationalExp: {
-        schoolName: '',
-        major: '',
-        degreeType: '',
-        gpa: 4.00,
-        graduationDate: new Date(),
-        id: uniqid(),
-      },
+      // Educational Exp
+      // educationalExp: {
+      //   schoolName: '',
+      //   major: '',
+      //   degreeType: '',
+      //   gpa: 4.00,
+      //   graduationDate: this.getFormattedDate(new Date()),
+      //   id: uniqid(),
+      // },
       educationalExps: [],
-      professionalExp: {
-        companyName: '',
-        positionTitle: '',
-        positionTasks: [],
-        fromDate: new Date(),
-        toDate: new Date(),
-        id: uniqid(),
-      },
+      schoolName: '',
+      major: '',
+      degreeType: '',
+      gpa: 4.00,
+      graduationDate: this.getFormattedDate(new Date()),
+      educationExpID: uniqid(),
+
+      // Professional Exp      
+      // professionalExp: {
+      //   companyName: '',
+      //   positionTitle: '',
+      //   positionTasks: [],
+      //   fromDate: this.getFormattedDate(new Date()),
+      //   toDate: this.getFormattedDate(new Date()),
+      //   id: uniqid(),
+      // },
       professionalExps: [],
-      skill: {
-        skillDescription: '',
-        id: uniqid(),
-      },
+      companyName: '',
+      positionTitle: '',
+      positionTasks: [],
+      fromDate: this.getFormattedDate(new Date()),
+      toDate: this.getFormattedDate(new Date()),
+      professionalExpID: uniqid(),
+      // Skills
+      // skill: {
+      //   skillDescription: '',
+      //   id: uniqid(),
+      // },
+      skillDescription: '',
+      skillID: uniqid(),
       skills: [],
     };
 
-    // BIND callbacks
+    // BIND methods
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     // General callbacks
     this.handleGeneralInfoChange = this.handleGeneralInfoChange.bind(this);
     // Educational Exp callbacks
     this.handleEducationalExpChange = this.handleEducationalExpChange.bind(this);
-    this.handleEducationExpSubmit = this.handleEducationalExpSubmit.bind(this);
+    this.handleEducationalExpSubmit = this.handleEducationalExpSubmit.bind(this);
     // Professional Exp callbacks
 
     // Skill callbacks
@@ -77,6 +97,10 @@ class App extends Component {
     this.printPreview = this.printPreview.bind(this);
   };
   
+  getFormattedDate(date) {
+    return format(date, 'yyyy-MM-dd');
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const target = event.target;
@@ -84,6 +108,14 @@ class App extends Component {
 
     }
   }
+  handleChange(event) {
+    const target = event.target
+    const name = target.name;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value
+    });
+  };
   // General Info callbacks
   handleGeneralInfoChange(event) {
     const attr = event.target.name;
@@ -92,7 +124,6 @@ class App extends Component {
       [attr]: value
     });
   };
-  
   // Educational Exp callbacks
   handleEducationalExpChange(event) {
     event.preventDefault();
@@ -101,44 +132,48 @@ class App extends Component {
     this.setState({
       educationalExp: {
         [name]: value,
+        id: this.state.educationalExp.id,
       }
     });
   };
   handleEducationalExpSubmit(event) {
     event.preventDefault();
     this.setState({
-      educationalExps: this.state.educationalExps.concat(this.educationalExp),
-      educationalExp: {
-        schoolName: '',
-        major: '',
-        degreeType: '',
-        gpa: 4.00,
-        graduationDate: new Date(),
-        id: uniqid(),
-      },
+      // capture
+      educationalExps: this.state.educationalExps.concat(this.state.educationalExp),
+      // restore to default
+      schoolName: '',
+      major: '',
+      degreeType: '',
+      gpa: 4.00,
+      graduationDate: this.getFormattedDate(new Date()),
+      professionalExpID: uniqid(),
     });
   };
-
   // Professional Exp callabacks
 
   // Skills callbacks
   handleSkillChange(event) {
     event.preventDefault();
     this.setState({
-      skill: {
-        skillDescription: event.target.value,
-        id: this.state.skill.id,
-      }
+      skillDescription: event.target.value,
+      id: this.state.skillID,
     });
   };
   handleSkillSubmit(event) {
     event.preventDefault();
+    const skillDescription = this.state.skillDescription;
+    const skillID = this.state.skillID;
+    const skill = {
+      skillDescription,
+      skillID,
+    }
     this.setState({
-      skills: this.state.skills.concat(this.state.skill),
-      skill: {
-        skillDescription: '',
-        id: uniqid(),
-      }
+      // capture
+      skills: this.state.skills.concat(skill),
+      // restore to default
+      skillDescription: '',
+      skillID: uniqid(),
     });
   };
 
@@ -146,16 +181,49 @@ class App extends Component {
     window.print();
   }
   render() {
-    const { 
+    const {
+      // General info 
       firstName,
       lastName,
       phoneNumber,
       email,
-      linkedInURL, 
-      educationalExps, 
-      professionalExps, 
-      skills 
+      linkedInURL,
+      // Educational Exp
+      schoolName,
+      major,
+      degreeType,
+      gpa,
+      graduationDate,
+      educationExpID,
+      // educationalExp,
+      educationalExps,
+      // Professional Exp
+      companyName,
+      positionTitle,
+      positionTasks,
+      fromDate,
+      toDate,
+      professionalExpID,
+      // professionalExp,
+      professionalExps,
+      // Skills
+      skillDescription,
+      skillID,
+      skills
     } = this.state;
+
+    const educationalExp = {
+
+    }
+
+    const professionalExp = {
+
+    }
+
+    const skill = {
+      skillDescription,
+      skillID,
+    }
 
     return (
       <div className='content-container'>
@@ -170,21 +238,22 @@ class App extends Component {
                 <form id='form' onSubmit={this.handleSubmit}>
                   <h3 className='form-section-header'>General</h3>
                   <GeneralInfoSectionInput 
-                    changeHandler = {this.handleGeneralInfoChange}
+                    changeHandler = {this.handleChange}
                   />
-                  <h3 className='form-section-header'>Educational Experience</h3>
-                  <EducationalExpSectionInput 
+                  {/* <h3 className='form-section-header'>Educational Experience</h3>
+                  <EducationalExpSectionInput
+                    educationalExp = {educationalExp}
                     changeHandler = {this.handleEducationalExpChange}
                     submitHandler = {this.handleEducationalExpSubmit}
-                  />
+                  /> */}
                   {/* <h3 className='form-section-header'>Professional Experience</h3>
                   <ProfessionalExpSectionInput 
 
                   /> */}
                   <h3 className='form-section-header'>Skills</h3>
                   <SkillsSectionInput
-                    skillDescription = {this.state.skill.skillDescription}
-                    changeHandler = {this.handleSkillChange}
+                    skill = {skill}
+                    changeHandler = {this.handleChange}
                     submitHandler = {this.handleSkillSubmit}
                   />
               </form>
@@ -201,9 +270,9 @@ class App extends Component {
                     email = {email}
                     linkedInURL = {linkedInURL}
                   />
-                  <EducationalExpSectionOutput educationalExps = { educationalExps }/>
-                  <ProfessionalExpSectionOutput professionalExps = { professionalExps }/>
-                  <SkillsSectionOutput skills = { skills }/>
+                  <EducationalExpSectionOutput educationalExps = {educationalExps}/>
+                  <ProfessionalExpSectionOutput professionalExps = {professionalExps}/>
+                  <SkillsSectionOutput skills = {skills}/>
                 </div>
               </div>
             </div>

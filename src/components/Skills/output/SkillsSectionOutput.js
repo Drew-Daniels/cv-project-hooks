@@ -7,12 +7,13 @@ class SkillsSectionOutput extends Component {
 
   render() {
     const {skills} = this.props;
+    
     return (
       <section id='skills-preview-section' className='preview-section'>
         <h3 className='preview-section-header'>Skills</h3>
         <ul>
           {skills.map((skill) => {
-            return <li key={skill.id}>{skill.skillDescription}</li>;
+            return <li key={skill.skillID}>{skill.skillDescription}</li>;
           })}
         </ul>
       </section>

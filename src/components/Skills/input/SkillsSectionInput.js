@@ -8,14 +8,22 @@ class SkillsSectionInput extends Component {
   };
 
   render() {
-    const {skillDescription, changeHandler} = this.props;
+    const {
+      skill, 
+      changeHandler, 
+      submitHandler
+    } = this.props;
+    
     return (
       <section>
-        <SkillsEntryInput skillDescription= {skillDescription} changeHandler={changeHandler}/>
+        <SkillsEntryInput 
+          skill={skill}
+          changeHandler={changeHandler}
+        />
         <div className='form-submit-btn-container'>
-          <button className="btn-base btn-form" onClick={this.props.submitHandler}>
+          <button className="btn-base btn-form" onClick={submitHandler}>
             <img src={addEntryIcon} alt="Addition Sign"></img>
-            <span>Add another Skill entry</span>
+            <span>Submit</span>
           </button>
         </div>
       </section>

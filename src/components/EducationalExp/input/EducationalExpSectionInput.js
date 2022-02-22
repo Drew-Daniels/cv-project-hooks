@@ -8,13 +8,21 @@ class EducationalExpSectionInput extends Component {
   }
 
   render() {
+    const { 
+      educationalExp,
+      changeHandler, 
+      submitHandler 
+    } = this.props;
     return (
       <section className='form-section'>
-        <EducationalExpEntryInput changeHandler={this.props.changeHandler}/>
+        <EducationalExpEntryInput 
+          educationalExp = {educationalExp}
+          changeHandler={changeHandler}
+        />
         <div className='form-submit-btn-container'>
-          <button className='btn-base btn-form' onClick ={this.props.submitHandler}>
+          <button className='btn-base btn-form' onClick ={submitHandler}>
             <img src={addEntryIcon} alt='Addition sign'></img>
-            <span>Add another Education Experience Entry</span>
+            <span>Submit</span>
           </button>
         </div>
       </section>
