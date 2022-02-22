@@ -7,22 +7,30 @@ class ProfessionalExpEntryOutput extends Component {
   };
 
   render() {
+    const {
+      companyName,
+      positionTitle,
+      positionTasks,
+      fromDate,
+      toDate,
+    } = this.props;
+
     return (
       <div className='preview-entry'>
         <div className='company-name-container-preview'>
-          <span id='company-name-preview'>{this.props.companyName}</span>
+          <span id='company-name-preview'>{companyName}</span>
         </div>
         <div className='position-title-container-preview'>
-          <span id='position-title-preview'>{this.props.positionTitle}</span>
+          <span id='position-title-preview'>{positionTitle}</span>
         </div>
-        <div className='position-tasks-container-preview'>
-          <span id='position-tasks-preview'>{this.props.positionTasks}</span>
-        </div>
+        {/* <div className='position-tasks-container-preview'>
+          <span id='position-tasks-preview'>{positionTasks}</span>
+        </div> */}
         <div className='from-date-container-preview'>
-          <span id='from-date-preview'>{this.props.fromDate}</span>
+          <span id='from-date-preview'>{fromDate}</span>
         </div>
         <div className='to-date-container-preview'>
-          <span id='to-date-preview'>{this.props.toDate}</span>
+          <span id='to-date-preview'>{toDate}</span>
         </div>
       </div>
     )

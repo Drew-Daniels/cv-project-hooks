@@ -7,7 +7,7 @@ class EducationalExpSectionOutput extends Component {
   }
   render() {
     const {educationalExps} = this.props;
-    console.log(educationalExps)
+
     return (
       <section id='education-preview-section' className='preview-section'>
         <h3 className='preview-section-header'>Educational Experience</h3>

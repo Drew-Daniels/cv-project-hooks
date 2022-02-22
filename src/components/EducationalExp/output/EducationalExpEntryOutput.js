@@ -15,7 +15,6 @@ class EducationalExpEntryOutput extends Component {
 
     return (
       <div className='preview-entry'>
-        <h3 className='preview-section-header'>Education</h3>
         <div className='education-line'>
           <span id='school-name-preview'>{schoolName}</span>
           <span id='graduation-date-preview'>{graduationDate}</span>

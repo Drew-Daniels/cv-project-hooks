@@ -5,45 +5,22 @@ import ProfessionalExpEntryInput from './ProfessionalExpEntryInput';
 class ProfessionalExpSectionInput extends Component {
   constructor(props) {
     super();
-    this.state = {
-      companyName: '',
-      positionTitle: '',
-      positionTasks: [],
-      fromDate: new Date(),
-      toDate: new Date(),
-    }
-    // rebind
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    // set state
-    this.setState({
-      [name]: value
-    })
-
-    // update previews
-    document.querySelector('#' + target.id + '-preview').textContent = value;
-    console.log('here');
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    // get all values from form
-    
   }
 
   render() {
+    const {
+      professionalExp,
+      changeHandler,
+      submitHandler,
+    } = this.props;
     return (
       <section className='form-section'>
-        <ProfessionalExpEntryInput changeHandler={this.handleChange}/>
+        <ProfessionalExpEntryInput 
+          professionalExp = {professionalExp}
+          changeHandler={changeHandler}
+        />
         <div className='form-submit-btn-container'>
-          <button className="btn-base btn-form" onClick={this.handleSubmit}>
+          <button className="btn-base btn-form" onClick={submitHandler}>
             <img src={addEntryIcon} alt="Addition Sign"></img>
             <span>Submit</span>
           </button>

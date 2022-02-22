@@ -1,4 +1,4 @@
-import { Component } from 'react';
+  import { Component } from 'react';
 import addEntryIcon from '../../../images/icons/add-entry-icon.svg';
 import EducationalExpEntryInput from './EducationalExpEntryInput';
 

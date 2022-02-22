@@ -38,14 +38,6 @@ class App extends Component {
       email: '',
       linkedInURL: '',
       // Educational Exp
-      // educationalExp: {
-      //   schoolName: '',
-      //   major: '',
-      //   degreeType: '',
-      //   gpa: 4.00,
-      //   graduationDate: this.getFormattedDate(new Date()),
-      //   id: uniqid(),
-      // },
       educationalExps: [],
       schoolName: '',
       major: '',
@@ -54,15 +46,7 @@ class App extends Component {
       graduationDate: this.getFormattedDate(new Date()),
       educationExpID: uniqid(),
 
-      // Professional Exp      
-      // professionalExp: {
-      //   companyName: '',
-      //   positionTitle: '',
-      //   positionTasks: [],
-      //   fromDate: this.getFormattedDate(new Date()),
-      //   toDate: this.getFormattedDate(new Date()),
-      //   id: uniqid(),
-      // },
+      // Professional Exp
       professionalExps: [],
       companyName: '',
       positionTitle: '',
@@ -71,10 +55,6 @@ class App extends Component {
       toDate: this.getFormattedDate(new Date()),
       professionalExpID: uniqid(),
       // Skills
-      // skill: {
-      //   skillDescription: '',
-      //   id: uniqid(),
-      // },
       skillDescription: '',
       skillID: uniqid(),
       skills: [],
@@ -83,15 +63,11 @@ class App extends Component {
     // BIND methods
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // General callbacks
-    this.handleGeneralInfoChange = this.handleGeneralInfoChange.bind(this);
     // Educational Exp callbacks
-    this.handleEducationalExpChange = this.handleEducationalExpChange.bind(this);
     this.handleEducationalExpSubmit = this.handleEducationalExpSubmit.bind(this);
     // Professional Exp callbacks
-
+    this.handleProfessionalExpSubmit = this.handleProfessionalExpSubmit.bind(this);
     // Skill callbacks
-    this.handleSkillChange = this.handleSkillChange.bind(this);
     this.handleSkillSubmit = this.handleSkillSubmit.bind(this);
     // Print preview
     this.printPreview = this.printPreview.bind(this);
@@ -165,7 +141,33 @@ class App extends Component {
     });
   };
   // Professional Exp callabacks
-
+  handleProfessionalExpSubmit(event) {
+    const companyName = this.state.companyName;
+    const positionTitle = this.state.positionTitle;
+    const positionTasks = this.state.positionTasks;
+    const fromDate = this.state.fromDate;
+    const toDate = this.state.toDate;
+    const professionalExpID = this.state.professionalExpID;
+    const professionalExp = {
+      companyName,
+      positionTitle,
+      positionTasks,
+      fromDate,
+      toDate,
+      professionalExpID,
+    }
+    this.setState({
+      // capture
+      professionalExps: this.state.professionalExps.concat(professionalExp),
+      // restore to default
+      companyName: '',
+      positionTitle: '',
+      positionTasks: [],
+      fromDate: this.getFormattedDate(new Date()),
+      toDate: this.getFormattedDate(new Date()),
+      professionalExpID: uniqid(),
+    });
+  };
   // Skills callbacks
   handleSkillChange(event) {
     event.preventDefault();
@@ -236,7 +238,12 @@ class App extends Component {
     }
 
     const professionalExp = {
-
+      companyName,
+      positionTitle,
+      positionTasks,
+      fromDate,
+      toDate,
+      professionalExpID,
     }
 
     const skill = {
@@ -265,10 +272,12 @@ class App extends Component {
                     changeHandler = {this.handleChange}
                     submitHandler = {this.handleEducationalExpSubmit}
                   />
-                  {/* <h3 className='form-section-header'>Professional Experience</h3>
+                  <h3 className='form-section-header'>Professional Experience</h3>
                   <ProfessionalExpSectionInput 
-
-                  /> */}
+                    professionalExp = {professionalExp}
+                    changeHandler = {this.handleChange}
+                    submitHandler = {this.handleProfessionalExpSubmit}
+                  />
                   <h3 className='form-section-header'>Skills</h3>
                   <SkillsSectionInput
                     skill = {skill}
