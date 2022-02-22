@@ -33,6 +33,7 @@ html, body, button {
 .form-and-preview-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .header {
   display: flex;
@@ -44,7 +45,7 @@ html, body, button {
   margin-right: 1em;
 }
 .preview-container {
-  width: 50%;
+  width: 50vw;
   background: rgb(248, 248, 248);
   padding: 0 1em;
   margin-left: 1em;
@@ -61,7 +62,8 @@ html, body, button {
   text-transform: uppercase;
 }
 .form-container {
-  width: 25%;
+  width: 25vw;
+  min-width: 30em;
   padding: 0 1em;
 }
 .header-container {
