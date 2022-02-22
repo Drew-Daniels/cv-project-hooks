@@ -138,16 +138,30 @@ class App extends Component {
   };
   handleEducationalExpSubmit(event) {
     event.preventDefault();
+    const schoolName = this.state.schoolName;
+    const major = this.state.major;
+    const degreeType = this.state.degreeType;
+    const gpa = this.state.gpa;
+    const graduationDate = this.state.graduationDate;
+    const educationalExpID = this.state.educationExpID;
+    const educationalExp = {
+      schoolName,
+      major,
+      degreeType,
+      gpa,
+      graduationDate,
+      educationalExpID,
+    }
     this.setState({
       // capture
-      educationalExps: this.state.educationalExps.concat(this.state.educationalExp),
+      educationalExps: this.state.educationalExps.concat(educationalExp),
       // restore to default
       schoolName: '',
       major: '',
       degreeType: '',
       gpa: 4.00,
       graduationDate: this.getFormattedDate(new Date()),
-      professionalExpID: uniqid(),
+      educationalExpID: uniqid(),
     });
   };
   // Professional Exp callabacks
@@ -213,7 +227,12 @@ class App extends Component {
     } = this.state;
 
     const educationalExp = {
-
+      schoolName,
+      major,
+      degreeType,
+      gpa,
+      graduationDate,
+      educationExpID,
     }
 
     const professionalExp = {
@@ -240,12 +259,12 @@ class App extends Component {
                   <GeneralInfoSectionInput 
                     changeHandler = {this.handleChange}
                   />
-                  {/* <h3 className='form-section-header'>Educational Experience</h3>
+                  <h3 className='form-section-header'>Educational Experience</h3>
                   <EducationalExpSectionInput
                     educationalExp = {educationalExp}
-                    changeHandler = {this.handleEducationalExpChange}
+                    changeHandler = {this.handleChange}
                     submitHandler = {this.handleEducationalExpSubmit}
-                  /> */}
+                  />
                   {/* <h3 className='form-section-header'>Professional Experience</h3>
                   <ProfessionalExpSectionInput 
 

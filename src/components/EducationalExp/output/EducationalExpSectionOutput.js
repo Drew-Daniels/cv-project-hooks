@@ -7,14 +7,15 @@ class EducationalExpSectionOutput extends Component {
   }
   render() {
     const {educationalExps} = this.props;
+    console.log(educationalExps)
     return (
       <section id='education-preview-section' className='preview-section'>
         <h3 className='preview-section-header'>Educational Experience</h3>
         <ul>
           {educationalExps.map((educationalExp) => {
-            return <li key={educationalExp.id}>
+            return <li key={educationalExp.educationalExpID}>
                     <EducationalExpEntryOutput 
-                      schoolname={educationalExp.schoolName}
+                      schoolName={educationalExp.schoolName}
                       major={educationalExp.major}
                       degreeType={educationalExp.degreeType}
                       gpa={educationalExp.gpa}
