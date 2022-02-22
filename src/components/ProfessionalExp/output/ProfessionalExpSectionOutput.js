@@ -18,7 +18,7 @@ class ProfessionalExpSectionOutput extends Component {
                     <ProfessionalExpEntryOutput
                       companyName = {professionalExp.companyName}
                       positionTitle = {professionalExp.positionTitle}
-                      // positionTasks = {professionalExp.positionTasks}
+                      positionTasks = {professionalExp.positionTasks}
                       fromDate = {professionalExp.fromDate}
                       toDate = {professionalExp.toDate}
                     />

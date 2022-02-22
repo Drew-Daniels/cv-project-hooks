@@ -45,7 +45,6 @@ class App extends Component {
       gpa: 4.00,
       graduationDate: this.getFormattedDate(new Date()),
       educationExpID: uniqid(),
-
       // Professional Exp
       professionalExps: [],
       companyName: '',

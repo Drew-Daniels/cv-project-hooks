@@ -23,9 +23,9 @@ class ProfessionalExpEntryOutput extends Component {
         <div className='position-title-container-preview'>
           <span id='position-title-preview'>{positionTitle}</span>
         </div>
-        {/* <div className='position-tasks-container-preview'>
-          <span id='position-tasks-preview'>{positionTasks}</span>
-        </div> */}
+        <div className='position-tasks-container-preview'>
+          <p id='position-tasks-preview'>{positionTasks}</p>
+        </div>
         <div className='from-date-container-preview'>
           <span id='from-date-preview'>{fromDate}</span>
         </div>

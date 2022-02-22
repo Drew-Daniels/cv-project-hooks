@@ -36,16 +36,16 @@ class ProfessionalExpEntryInput extends Component {
             onChange={changeHandler}>
           </input>
         </div>
-        {/* <div className='form-control'>
+        <div className='form-control'>
           <label htmlFor='position-tasks'>Position Tasks:</label>
-          <input 
+          <textarea 
             id='position-tasks' 
             type='text' 
             name='positionTasks'
             value={positionTasks}
             onChange={changeHandler}>
-          </input>
-        </div> */}
+          </textarea>
+        </div>
         <div className='form-control'>
           <label htmlFor='from-date'>From Date:</label>
           <input 
