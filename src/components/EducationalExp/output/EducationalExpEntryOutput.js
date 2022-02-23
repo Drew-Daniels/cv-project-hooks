@@ -21,7 +21,7 @@ class EducationalExpEntryOutput extends Component {
         </div>
         <div className='education-line'>
           <div>
-            <span id='degree-type-preview'>{degreeType}</span>
+            <span id='degree-type-preview'>{degreeType.charAt(0).toUpperCase() + degreeType.slice(1)}</span>
             <span>, </span>
             <span id='major-preview'>{major}</span>
           </div>

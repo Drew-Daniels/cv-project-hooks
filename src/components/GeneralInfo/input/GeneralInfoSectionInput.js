@@ -7,7 +7,8 @@ class GeneralInfoSectionInput extends Component {
 
   render() {
     return (
-      <section className='form-section'>
+      <section id='general-section' className='form-section'>
+        <h3 className='form-section-header'>General</h3>
         <div className='form-control'>
           <label htmlFor='first-name'>First Name:</label>
           <input id='first-name' name='firstName' type='text' onChange={this.props.changeHandler}/>

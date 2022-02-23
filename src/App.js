@@ -44,7 +44,7 @@ class App extends Component {
       degreeType: '',
       gpa: 4.00,
       graduationDate: this.getFormattedDate(new Date()),
-      educationExpID: uniqid(),
+      educationalExpID: uniqid(),
       // Professional Exp
       professionalExps: [],
       companyName: '',
@@ -78,10 +78,6 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const target = event.target;
-    if (target.type === 'input') {
-
-    }
   }
   handleChange(event) {
     const target = event.target
@@ -118,7 +114,7 @@ class App extends Component {
     const degreeType = this.state.degreeType;
     const gpa = this.state.gpa;
     const graduationDate = this.state.graduationDate;
-    const educationalExpID = this.state.educationExpID;
+    const educationalExpID = this.state.educationalExpID;
     const educationalExp = {
       schoolName,
       major,
@@ -209,7 +205,7 @@ class App extends Component {
       degreeType,
       gpa,
       graduationDate,
-      educationExpID,
+      educationalExpID,
       // educationalExp,
       educationalExps,
       // Professional Exp
@@ -233,7 +229,7 @@ class App extends Component {
       degreeType,
       gpa,
       graduationDate,
-      educationExpID,
+      educationalExpID,
     }
 
     const professionalExp = {
@@ -257,27 +253,20 @@ class App extends Component {
           <div className='ui'>
             <div className='form-and-preview-container'>
               <div className='form-container'>
-                <div className='header-container'>
-                  <h2>Entries</h2>
-                </div>
-                <form id='form' onSubmit={this.handleSubmit}>
-                  <h3 className='form-section-header'>General</h3>
+                <form id='form' onSubmit={this.handleSubmit} noValidate>
                   <GeneralInfoSectionInput 
                     changeHandler = {this.handleChange}
                   />
-                  <h3 className='form-section-header'>Educational Experience</h3>
                   <EducationalExpSectionInput
                     educationalExp = {educationalExp}
                     changeHandler = {this.handleChange}
                     submitHandler = {this.handleEducationalExpSubmit}
                   />
-                  <h3 className='form-section-header'>Professional Experience</h3>
                   <ProfessionalExpSectionInput 
                     professionalExp = {professionalExp}
                     changeHandler = {this.handleChange}
                     submitHandler = {this.handleProfessionalExpSubmit}
                   />
-                  <h3 className='form-section-header'>Skills</h3>
                   <SkillsSectionInput
                     skill = {skill}
                     changeHandler = {this.handleChange}
@@ -286,9 +275,6 @@ class App extends Component {
               </form>
               </div>
               <div className='preview-container'>
-                <div className='header-container'>
-                  <h2>Preview</h2>
-                </div>
                 <div id='preview'>
                   <GeneralInfoSectionOutput 
                     firstName = {firstName}
@@ -304,7 +290,7 @@ class App extends Component {
               </div>
             </div>
             <div className='form-submit-btn-container'>
-              <button className='btn-base' onClick={this.printPreview}>
+              <button id='btn-print-preview' className='btn-base' onClick={this.printPreview}>
                 <img src={formSubmitIcon} alt='printer'></img>
                 <span>Print</span>
               </button>

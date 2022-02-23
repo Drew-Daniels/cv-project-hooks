@@ -23,7 +23,8 @@ class EducationalExpEntryInput extends Component {
           <input 
             id='school-name' 
             type='text' 
-            name='schoolName' 
+            name='schoolName'
+            required
             value={schoolName}
             onChange={changeHandler}>
           </input>
@@ -33,6 +34,7 @@ class EducationalExpEntryInput extends Component {
           <input 
             id='major' 
             name='major'
+            required
             value={major}
             onChange={changeHandler}>
           </input>
@@ -45,6 +47,7 @@ class EducationalExpEntryInput extends Component {
                 id='degree-type-1' 
                 type='radio' 
                 name='degreeType' 
+                required
                 value='associates' 
                 // checked={degreeType}
                 onChange={changeHandler}>
@@ -56,6 +59,7 @@ class EducationalExpEntryInput extends Component {
                 id='degree-type-2' 
                 type='radio' 
                 name='degreeType' 
+                required
                 value='bachelors' 
                 // checked={degreeType}
                 onChange={changeHandler}>
@@ -67,6 +71,7 @@ class EducationalExpEntryInput extends Component {
                 id='degree-type-3' 
                 type='radio' 
                 name='degreeType' 
+                required
                 value='masters' 
                 // checked={degreeType}
                 onChange={changeHandler}>
@@ -78,6 +83,7 @@ class EducationalExpEntryInput extends Component {
                 id='degree-type-4' 
                 type='radio' 
                 name='degreeType' 
+                required
                 value='doctorate' 
                 // checked={degreeType}
                 onChange={changeHandler}>    
@@ -94,6 +100,7 @@ class EducationalExpEntryInput extends Component {
             step='0.01' 
             min='0' 
             name='gpa' 
+            required
             value={gpa} 
             onChange={changeHandler}>
           </input>
@@ -104,6 +111,7 @@ class EducationalExpEntryInput extends Component {
             id='graduation-date' 
             type='date' 
             name='graduationDate'
+            required
             value={graduationDate}
             onChange={changeHandler}>
           </input>

@@ -3,6 +3,17 @@
 }
 html, body, button {
   font-family: 'Roboto', sans-serif;
+  color: #F3F8F2;
+}
+li {
+  display:  list-item;
+}
+input {
+  border: none;
+  border-radius: .25em;
+}
+input:focus {
+  outline-color: #3581B8;
 }
 @media print {
   .form-container, .header, .header-container, .footer, .form-submit-btn-container {
@@ -25,6 +36,19 @@ html, body, button {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  background-color: #EBE9E9;
+}
+#general-section {
+  background-color: #342E37;
+}
+#educational-section {
+  background-color: #342E37;
+}
+#professional-section {
+  background-color: #342E37;
+}
+#skills-section {
+  background-color: #342E37;
 }
 .ui {
   display: flex;
@@ -34,11 +58,17 @@ html, body, button {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 1em;
 }
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1em 0;
+  color: #342E37;
+  font-weight: 700;
+  font-size: 1.5em;
+  font-family: 'Ubuntu', sans-serif;
 }
 .header-image {
   height: 4em;
@@ -46,13 +76,14 @@ html, body, button {
 }
 .preview-container {
   width: 50vw;
-  background: rgb(248, 248, 248);
+  color: black;
+  background-color: white;
   padding: 0 1em;
   margin-left: 1em;
 }
 #preview {
   font-family: 'calibri', sans-serif;
-  padding: 0 1em;
+  padding: 1em;
 }
 .preview-section {
   margin-bottom: 1em;
@@ -75,11 +106,15 @@ html, body, button {
   flex-direction: column;
   align-items: center;
   height: 5em;
-  padding-top: 2em;
+  padding: 2em 0;
 }
 .github-profile-container {
   display: flex;
   justify-content: center;
+  color: #342E37;
+}
+#github-link-project {
+  margin-bottom: .5em;
 }
 .github-profile-container > * {
   padding-right: 0.25em;
@@ -91,14 +126,21 @@ html, body, button {
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
+  border-radius: 1em;
+  padding: 1em;
+}
+.form-section:last-child {
+  margin-bottom: 0;
 }
 .form-section-header {
-  text-decoration: underline;
+  font-weight: 700;
+  font-size: 1.25em;
   margin-bottom: .5em;
 }
 .form-submit-btn-container {
   display: flex;
   justify-content: center;
+  padding: 1em 0;
 }
 .form-entry {
   display: flex;
@@ -109,6 +151,19 @@ html, body, button {
   align-items: center;
   border: none;
   background: transparent;
+}
+.btn-form {
+  border: 1px solid black;
+  border-radius: 1em;
+}
+#btn-print-preview {
+  width: 6em;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 1em;
+  background-color: #342E37;
+  justify-content: space-around;
+  font-size: 1.25em;
 }
 .form-control {
   display: flex;

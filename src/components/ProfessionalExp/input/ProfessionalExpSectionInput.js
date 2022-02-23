@@ -14,7 +14,8 @@ class ProfessionalExpSectionInput extends Component {
       submitHandler,
     } = this.props;
     return (
-      <section className='form-section'>
+      <section id='professional-section' className='form-section'>
+        <h3 className='form-section-header'>Professional Experience</h3>
         <ProfessionalExpEntryInput 
           professionalExp = {professionalExp}
           changeHandler={changeHandler}
