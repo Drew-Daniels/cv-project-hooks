@@ -43,15 +43,15 @@ class App extends Component {
       major: '',
       degreeType: '',
       gpa: 4.00,
-      graduationDate: this.getFormattedDate(new Date()),
+      graduationDate: this.getHTMLFormattedDate(new Date()),
       educationalExpID: uniqid(),
       // Professional Exp
       professionalExps: [],
       companyName: '',
       positionTitle: '',
       positionTasks: [],
-      fromDate: this.getFormattedDate(new Date()),
-      toDate: this.getFormattedDate(new Date()),
+      fromDate: this.getHTMLFormattedDate(new Date()),
+      toDate: this.getHTMLFormattedDate(new Date()),
       professionalExpID: uniqid(),
       // Skills
       skillDescription: '',
@@ -72,7 +72,7 @@ class App extends Component {
     this.printPreview = this.printPreview.bind(this);
   };
   
-  getFormattedDate(date) {
+  getHTMLFormattedDate(date) {
     return format(date, 'yyyy-MM-dd');
   }
 
@@ -131,7 +131,7 @@ class App extends Component {
       major: '',
       degreeType: '',
       gpa: 4.00,
-      graduationDate: this.getFormattedDate(new Date()),
+      graduationDate: this.getHTMLFormattedDate(new Date()),
       educationalExpID: uniqid(),
     });
   };
@@ -158,8 +158,8 @@ class App extends Component {
       companyName: '',
       positionTitle: '',
       positionTasks: [],
-      fromDate: this.getFormattedDate(new Date()),
-      toDate: this.getFormattedDate(new Date()),
+      fromDate: this.getHTMLFormattedDate(new Date()),
+      toDate: this.getHTMLFormattedDate(new Date()),
       professionalExpID: uniqid(),
     });
   };

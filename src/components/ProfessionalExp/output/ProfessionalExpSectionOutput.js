@@ -8,7 +8,6 @@ class ProfessionalExpSectionOutput extends Component {
 
   render() {
     const {professionalExps} = this.props;
-    console.log(professionalExps);
     return (
       <section id='professional-preview-section' className='preview-section'>
         <h3 className='preview-section-header'>Business Experience</h3>

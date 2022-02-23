@@ -92,6 +92,9 @@ input:focus {
   text-decoration: underline;
   text-transform: uppercase;
 }
+.company-name-preview {
+  font-weight: 600;
+}
 .form-container {
   width: 25vw;
   min-width: 30em;
@@ -169,4 +172,14 @@ input:focus {
   display: flex;
   justify-content: space-between;
   margin-bottom:.5em;
+}
+.company-name-and-dates-preview-container {
+  display: flex;
+  justify-content: space-between;
+}
+.dates-container {
+  display: flex;
+}
+.date-separator {
+  margin: 0 .25em;
 }
