@@ -9,7 +9,11 @@ class ProfessionalExpEntryOutput extends Component {
 
   parseHTMLDateToProfessionalDate(dateStr) {
     const date = parse(dateStr, 'yyyy-MM-dd', new Date());
-    return format(date, 'MMMM yyyy');
+    if (date.getDate() === new Date().getDate()) {
+      return 'Present'
+    } else {
+      return format(date, 'MMMM yyyy');
+    };
   }
 
   render() {
