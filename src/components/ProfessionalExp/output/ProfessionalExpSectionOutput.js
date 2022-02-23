@@ -13,7 +13,7 @@ class ProfessionalExpSectionOutput extends Component {
         <h3 className='preview-section-header'>Business Experience</h3>
         <ul>
           {professionalExps.map((professionalExp) => {
-            return <li key={professionalExp.professionalExpID}>
+            return <li key={professionalExp.professionalExpID} className='professional-exp'>
                     <ProfessionalExpEntryOutput
                       companyName = {professionalExp.companyName}
                       positionTitle = {professionalExp.positionTitle}

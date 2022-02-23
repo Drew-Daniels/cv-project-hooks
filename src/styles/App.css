@@ -6,7 +6,7 @@ html, body, button {
   color: #F3F8F2;
 }
 li {
-  display:  list-item;
+  display: list-item;
 }
 input {
   border: none;
@@ -92,7 +92,7 @@ input:focus {
   text-decoration: underline;
   text-transform: uppercase;
 }
-.company-name-preview {
+.school-name-preview, .company-name-preview {
   font-weight: 600;
 }
 .form-container {
@@ -182,4 +182,19 @@ input:focus {
 }
 .date-separator {
   margin: 0 .25em;
+}
+.educational-exp:first-child, .professional-exp:first-child, .skill:first-child {
+  margin-top: .25em;
+}
+.educational-exp, .professional-exp, .skill {
+  margin-bottom: 1em;
+}
+.educational-exp, .professional-exp {
+  list-style: none;
+}
+.skills-list {
+  margin-left: 1.25em;
+}
+.gpa-label {
+  margin-right: .25em;
 }
