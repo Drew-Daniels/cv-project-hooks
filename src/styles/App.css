@@ -186,8 +186,11 @@ input:focus {
 .educational-exp:first-child, .professional-exp:first-child, .skill:first-child {
   margin-top: .25em;
 }
-.educational-exp, .professional-exp, .skill {
+.educational-exp, .professional-exp {
   margin-bottom: 1em;
+}
+.skill {
+  margin-bottom: .25em;
 }
 .educational-exp, .professional-exp {
   list-style: none;

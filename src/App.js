@@ -59,16 +59,13 @@ class App extends Component {
       skills: [],
     };
 
-    // BIND methods
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // Educational Exp callbacks
     this.handleEducationalExpSubmit = this.handleEducationalExpSubmit.bind(this);
-    // Professional Exp callbacks
     this.handleProfessionalExpSubmit = this.handleProfessionalExpSubmit.bind(this);
-    // Skill callbacks
+
+    this.handleSkillEdit = this.handleSkillEdit.bind(this);
     this.handleSkillSubmit = this.handleSkillSubmit.bind(this);
-    // Print preview
     this.printPreview = this.printPreview.bind(this);
   };
   
@@ -87,26 +84,7 @@ class App extends Component {
       [name]: value
     });
   };
-  // General Info callbacks
-  handleGeneralInfoChange(event) {
-    const attr = event.target.name;
-    const value = event.target.value;
-    this.setState({
-      [attr]: value
-    });
-  };
   // Educational Exp callbacks
-  handleEducationalExpChange(event) {
-    event.preventDefault();
-    const name = event.target.name;
-    const value = event.target.value;
-    this.setState({
-      educationalExp: {
-        [name]: value,
-        id: this.state.educationalExp.id,
-      }
-    });
-  };
   handleEducationalExpSubmit(event) {
     event.preventDefault();
     const schoolName = this.state.schoolName;
@@ -164,13 +142,16 @@ class App extends Component {
     });
   };
   // Skills callbacks
-  handleSkillChange(event) {
-    event.preventDefault();
+  handleSkillEdit(event) {
+    const skillID = event.target.id
+    const skill = this.state.skills.find(skill => skill.skillID === skillID)
     this.setState({
-      skillDescription: event.target.value,
-      id: this.state.skillID,
-    });
-  };
+      skillDescription: skill.skillDescription,
+      skillID: skill.skillID,
+      skills: this.state.skills.filter(function(sk) {
+        return sk !== skill })
+    })
+  }
   handleSkillSubmit(event) {
     event.preventDefault();
     const skillDescription = this.state.skillDescription;
@@ -283,9 +264,16 @@ class App extends Component {
                     email = {email}
                     linkedInURL = {linkedInURL}
                   />
-                  <EducationalExpSectionOutput educationalExps = {educationalExps}/>
-                  <ProfessionalExpSectionOutput professionalExps = {professionalExps}/>
-                  <SkillsSectionOutput skills = {skills}/>
+                  <EducationalExpSectionOutput 
+                    educationalExps = {educationalExps}
+                  />
+                  <ProfessionalExpSectionOutput 
+                    professionalExps = {professionalExps}
+                  />
+                  <SkillsSectionOutput 
+                    skills = {skills}
+                    onEdit = {this.handleSkillEdit}
+                  />
                 </div>
               </div>
             </div>
