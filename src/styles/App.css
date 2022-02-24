@@ -159,6 +159,10 @@ input:focus {
   border: 1px solid black;
   border-radius: 1em;
 }
+.btn-preview {
+  background-color: #342E37;
+  border-radius: .25em;
+}
 #btn-print-preview {
   width: 6em;
   padding: 1em;
@@ -189,8 +193,26 @@ input:focus {
 .educational-exp, .professional-exp {
   margin-bottom: 1em;
 }
+.educational-exp {
+  position: relative;
+}
 .skill {
+  height: 1.5em;
   margin-bottom: .25em;
+  position: relative;
+}
+.educational-exp:hover, .skill:hover {
+  background-color: #DEE2D6;
+}
+.educational-exp:hover .btn-show-on-hover, .skill:hover .btn-show-on-hover{
+  display: inline;
+}
+.btn-show-on-hover {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  display: none;
+  height: 100%;
 }
 .educational-exp, .professional-exp {
   list-style: none;

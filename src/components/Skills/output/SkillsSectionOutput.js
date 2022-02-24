@@ -13,7 +13,10 @@ class SkillsSectionOutput extends Component {
         <h3 className='preview-section-header'>Skills</h3>
         <ul className='skills-list'>
           {skills.map((skill) => {
-            return <li key={skill.skillID} id={skill.skillID} className='skill' onClick={onEdit}>{skill.skillDescription}</li>;
+            return <li key={skill.skillID} id={skill.skillID} className='skill'>
+                    {skill.skillDescription}
+                    <button className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button>
+                   </li>;
           })}
         </ul>
       </section>

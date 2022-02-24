@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
-import { format } from 'date-fns';
+import { format, isThisMonth } from 'date-fns';
 
 import HeaderSection from './components/HeaderSection';
 import FooterSection from './components/FooterSection';
@@ -61,11 +61,18 @@ class App extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    
+    this.handleEducationalExpEdit = this.handleEducationalExpEdit.bind(this);
     this.handleEducationalExpSubmit = this.handleEducationalExpSubmit.bind(this);
+
+    this.handleProfessionalExpEdit = this.handleProfessionalExpEdit.bind(this);
     this.handleProfessionalExpSubmit = this.handleProfessionalExpSubmit.bind(this);
 
+    this.getSkill = this.getSkill.bind(this);
+    this.skillExists = this.skillExists.bind(this);
     this.handleSkillEdit = this.handleSkillEdit.bind(this);
     this.handleSkillSubmit = this.handleSkillSubmit.bind(this);
+
     this.printPreview = this.printPreview.bind(this);
   };
   
@@ -85,6 +92,21 @@ class App extends Component {
     });
   };
   // Educational Exp callbacks
+  handleEducationalExpEdit(event) {
+    console.log(event.target);
+    // const educationalExpID = event.target.id;
+    // const educationalExp = this.state.educationalExps.find(
+    //   educationalExp => educationalExp.educationalExpID === educationalExpID
+    // );
+    // this.setState({
+    //   schoolName: educationalExp.schoolName,
+    //   major: educationalExp.major,
+    //   degreeType: educationalExp.degreeType,
+    //   gpa: educationalExp.gpa,
+    //   graduationDate: educationalExp.graduationDate,
+    //   educationalExpID: educationalExp.educationalExpID,
+    // })
+  }
   handleEducationalExpSubmit(event) {
     event.preventDefault();
     const schoolName = this.state.schoolName;
@@ -114,6 +136,9 @@ class App extends Component {
     });
   };
   // Professional Exp callabacks
+  handleProfessionalExpEdit(event) {
+    console.log(event.target);
+  }
   handleProfessionalExpSubmit(event) {
     const companyName = this.state.companyName;
     const positionTitle = this.state.positionTitle;
@@ -142,14 +167,22 @@ class App extends Component {
     });
   };
   // Skills callbacks
+  getSkill(skillID) {
+    const skills = this.state.skills;
+    const skill = skills.find(skill => skill.skillID === skillID)
+    return skill;
+  }
+  skillExists(skillID) {
+    const skills = this.state.skills;
+    const result = !!skills.find(skill => skill.skillID === skillID);
+    return result;
+  }
   handleSkillEdit(event) {
-    const skillID = event.target.id
+    const skillID = event.target.parentNode.id
     const skill = this.state.skills.find(skill => skill.skillID === skillID)
     this.setState({
       skillDescription: skill.skillDescription,
       skillID: skill.skillID,
-      skills: this.state.skills.filter(function(sk) {
-        return sk !== skill })
     })
   }
   handleSkillSubmit(event) {
@@ -160,13 +193,22 @@ class App extends Component {
       skillDescription,
       skillID,
     }
+    // check if this skill is already in state, if not add it, if so, do nothing)
+    if (!(this.skillExists(skillID))) {
+      // skill does not already exist
+      this.setState({
+        skills: this.state.skills.concat(skill),
+      });
+    } else {
+      // skill DOES already exist
+      const skillToUpdate = this.getSkill(skillID);
+      skillToUpdate.skillDescription = this.state.skillDescription;
+    }
     this.setState({
-      // capture
-      skills: this.state.skills.concat(skill),
       // restore to default
       skillDescription: '',
       skillID: uniqid(),
-    });
+    })
   };
 
   printPreview() {
@@ -266,6 +308,7 @@ class App extends Component {
                   />
                   <EducationalExpSectionOutput 
                     educationalExps = {educationalExps}
+                    onEdit = {this.handleEducationalExpEdit}
                   />
                   <ProfessionalExpSectionOutput 
                     professionalExps = {professionalExps}

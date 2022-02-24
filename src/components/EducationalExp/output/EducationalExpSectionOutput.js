@@ -6,14 +6,14 @@ class EducationalExpSectionOutput extends Component {
     super()
   }
   render() {
-    const {educationalExps} = this.props;
+    const {educationalExps, onEdit} = this.props;
 
     return (
       <section id='education-preview-section' className='preview-section'>
         <h3 className='preview-section-header'>Educational Experience</h3>
         <ul>
           {educationalExps.map((educationalExp) => {
-            return <li key={educationalExp.educationalExpID} id={educationalExp.educationalExpID} className='educational-exp'>
+            return <li key={educationalExp.educationalExpID} id={educationalExp.educationalExpID} className='educational-exp' onClick={onEdit}>
                     <EducationalExpEntryOutput 
                       schoolName={educationalExp.schoolName}
                       major={educationalExp.major}
@@ -21,6 +21,7 @@ class EducationalExpSectionOutput extends Component {
                       gpa={educationalExp.gpa}
                       graduationDate={educationalExp.graduationDate}
                     />
+                    <button className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button>
                    </li>
           })}
         </ul>
