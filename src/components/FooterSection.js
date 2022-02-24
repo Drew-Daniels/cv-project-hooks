@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import githubIcon from '../images/icons/github-icon.png';
+import githubIcon from '../images/icons/github-icon.svg';
 
 class FooterSection extends Component {
   constructor(props) {

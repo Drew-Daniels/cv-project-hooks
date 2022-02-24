@@ -79,7 +79,7 @@ input:focus {
   color: black;
   background-color: white;
   padding: 0 1em;
-  margin-left: 1em;
+  margin: 1em;
 }
 #preview {
   font-family: 'calibri', sans-serif;
@@ -110,11 +110,11 @@ input:focus {
   align-items: center;
   height: 5em;
   padding: 2em 0;
+  background-color: #342E37;
 }
 .github-profile-container {
   display: flex;
   justify-content: center;
-  color: #342E37;
 }
 #github-link-project {
   margin-bottom: .5em;
