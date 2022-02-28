@@ -529,7 +529,7 @@ class App extends Component {
                   <EducationalExpSectionOutput 
                     educationalExps = {educationalExps}
                     onEdit = {this.handleEducationalExpEdit}
-                    onDelete = {this.handleProfessionalExpDelete}
+                    onDelete = {this.handleEducationalExpDelete}
                   />
                   <ProfessionalExpSectionOutput 
                     professionalExps = {professionalExps}

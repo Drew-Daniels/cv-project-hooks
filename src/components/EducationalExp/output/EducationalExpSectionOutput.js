@@ -22,8 +22,8 @@ class EducationalExpSectionOutput extends Component {
                       graduationDate={educationalExp.graduationDate}
                     />
                     <div className='btn-container'>
-                      <button className='btn-base btn-preview btn-show-on-hover btn-edit'onClick={onEdit}>Edit</button>
-                      <button className='btn-base btn-preview btn-show-on-hover btn-delete'onClick={onDelete}>Delete</button>
+                      <button className='btn-base btn-preview btn-show-on-hover btn-edit' onClick={onEdit}>Edit</button>
+                      <button className='btn-base btn-preview btn-show-on-hover btn-delete' onClick={onDelete}>Delete</button>
                     </div>
                    </li>
           })}
