@@ -15,8 +15,8 @@ class SkillsSectionInput extends Component {
     } = this.props;
     
     return (
-      <section id='skills-section' className='form-section'>
-        <h3 className='form-section-header'>Skills</h3>
+      <form id='skills-section' className='form'>
+        <h3 className='form-header'>Skills</h3>
         <SkillsEntryInput 
           skill={skill}
           changeHandler={changeHandler}
@@ -27,7 +27,7 @@ class SkillsSectionInput extends Component {
             <span>Submit</span>
           </button>
         </div>
-      </section>
+      </form>
     );
   };
 }

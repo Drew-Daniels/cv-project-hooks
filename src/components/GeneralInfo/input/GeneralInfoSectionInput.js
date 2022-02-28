@@ -5,10 +5,13 @@ class GeneralInfoSectionInput extends Component {
     super();
   }
 
+  submitHandler(event) {
+    event.preventDefault();
+  }
   render() {
     return (
-      <section id='general-section' className='form-section'>
-        <h3 className='form-section-header'>General</h3>
+      <form id='general-section' className='form' onSubmit={this.submitHandler}>
+        <h3 className='form-header'>General</h3>
         <div className='form-control'>
           <label htmlFor='first-name'>First Name:</label>
           <input id='first-name' name='firstName' type='text' onChange={this.props.changeHandler}/>
@@ -29,7 +32,7 @@ class GeneralInfoSectionInput extends Component {
           <label htmlFor='linkedin-url'>LinkedIn URL:</label>
           <input id='linkedin-url' name='linkedInURL' type='text' onChange={this.props.changeHandler}/>
         </div>
-      </section>
+      </form>
     );
   }
 }

@@ -6,7 +6,6 @@ class EducationalExpSectionInput extends Component {
   constructor(props) {
     super()
   }
-
   render() {
     const { 
       educationalExp,
@@ -14,19 +13,19 @@ class EducationalExpSectionInput extends Component {
       submitHandler 
     } = this.props;
     return (
-      <section id='educational-section' className='form-section'>
-        <h3 className='form-section-header'>Educational Experience</h3>
+      <form id='educational-section' onSubmit={submitHandler} className='form'>
+        <h3 className='form-header'>Educational Experience</h3>
         <EducationalExpEntryInput 
           educationalExp = {educationalExp}
           changeHandler={changeHandler}
         />
         <div className='form-submit-btn-container'>
-          <button className='btn-base btn-form' onClick ={submitHandler}>
+          <button id='education-submit-btn' className='btn-base btn-form' onClick ={submitHandler}>
             <img src={addEntryIcon} alt='Addition sign'></img>
             <span>Submit</span>
           </button>
         </div>
-      </section>
+      </form>
     )
   }
 }

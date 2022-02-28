@@ -497,7 +497,7 @@ class App extends Component {
           <div className='ui'>
             <div className='form-and-preview-container'>
               <div className='form-container'>
-                <form id='form' onSubmit={this.handleSubmit} noValidate>
+                <div id='form' onSubmit={this.handleSubmit} noValidate>
                   <GeneralInfoSectionInput 
                     changeHandler = {this.handleChange}
                   />
@@ -516,7 +516,7 @@ class App extends Component {
                     changeHandler = {this.handleChange}
                     submitHandler = {this.handleSkillSubmit}
                   />
-              </form>
+              </div>
               </div>
               <div className='preview-container'>
                 <div id='preview'>
