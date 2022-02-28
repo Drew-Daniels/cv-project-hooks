@@ -6,7 +6,7 @@ class SkillsSectionOutput extends Component {
   }
 
   render() {
-    const {skills, onEdit} = this.props;
+    const {skills, onEdit, onDelete} = this.props;
     
     return (
       <section id='skills-preview-section' className='preview-section'>
@@ -16,6 +16,7 @@ class SkillsSectionOutput extends Component {
             return <li key={skill.skillID} id={skill.skillID} className='skill'>
                     {skill.skillDescription}
                     <button className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button>
+                    <button className='btn-base btn-preview btn-show-on-hover' onClick={onDelete}>Delete</button>
                    </li>;
           })}
         </ul>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
-import { format, isThisMonth } from 'date-fns';
+import { format } from 'date-fns';
 
 import HeaderSection from './components/HeaderSection';
 import FooterSection from './components/FooterSection';
@@ -59,6 +59,7 @@ class App extends Component {
       skills: [],
     };
 
+    this.restoreStateDefault = this.restoreStateDefault.bind(this);
     this.getStateItemIndex = this.getStateItemIndex.bind(this);
     this.stateItemExists = this.stateItemExists.bind(this);
     this.updateStateItem = this.updateStateItem.bind(this);
@@ -66,14 +67,21 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     
+    this.getEducationalExpIndex = this.getEducationalExpIndex.bind(this);
+    this.educationalExpExists = this.educationalExpExists.bind(this);
+    this.updateEducationalExp = this.updateEducationalExp.bind(this);
     this.handleEducationalExpEdit = this.handleEducationalExpEdit.bind(this);
     this.handleEducationalExpSubmit = this.handleEducationalExpSubmit.bind(this);
 
+    this.getProfessionalExpIndex = this.getProfessionalExpIndex.bind(this);
+    this.professionalExpExists = this.professionalExpExists.bind(this);
+    this.updateProfessionalExp = this.updateProfessionalExp.bind(this);
     this.handleProfessionalExpEdit = this.handleProfessionalExpEdit.bind(this);
     this.handleProfessionalExpSubmit = this.handleProfessionalExpSubmit.bind(this);
 
     this.getSkillIndex = this.getSkillIndex.bind(this);
     this.skillExists = this.skillExists.bind(this);
+    this.updateSkill = this.updateSkill.bind(this);
     this.handleSkillEdit = this.handleSkillEdit.bind(this);
     this.handleSkillSubmit = this.handleSkillSubmit.bind(this);
 
@@ -91,10 +99,10 @@ class App extends Component {
     let i;
     switch (itemType) {
       case 'educational':
-        i = this.state.educationalExps.findIndex(educationalExp => educationalExp.skillID === itemID);
+        i = this.state.educationalExps.findIndex(educationalExp => educationalExp.educationalExpID === itemID);
         break;
       case 'professional':
-        i = this.state.professionalExps.findIndex(professionalExp => professionalExp.skillID === itemID);
+        i = this.state.professionalExps.findIndex(professionalExp => professionalExp.professionalExpID === itemID);
         break;
       case 'skill':
         i = this.state.skills.findIndex(skill => skill.skillID === itemID);
@@ -145,7 +153,18 @@ class App extends Component {
     this.updateStateItem(educationalExpID, 'educational');
   }
   handleEducationalExpEdit(event) {
-
+    const educationalExpID = event.target.parentNode.id;
+    const educationalExp = this.state.educationalExps.find(
+      educationalExp => educationalExp.educationalExpID === educationalExpID
+    );
+    this.setState({
+      schoolName: educationalExp.schoolName,
+      major: educationalExp.major,
+      degreeType: educationalExp.degreeType,
+      gpa: educationalExp.gpa,
+      graduationDate: educationalExp.graduationDate,
+      educationalExpID: educationalExp.educationalExpID,
+    });
   }
   handleEducationalExpSubmit(event) {
     event.preventDefault();
@@ -168,17 +187,9 @@ class App extends Component {
         educationalExps: this.state.educationalExps.concat(educationalExp),
       })
     } else {
-
+      this.updateEducationalExp(educationalExpID);
     }
-    this.setState({
-      // restore to default
-      schoolName: '',
-      major: '',
-      degreeType: '',
-      gpa: 4.00,
-      graduationDate: this.getHTMLFormattedDate(new Date()),
-      educationalExpID: uniqid(),
-    });
+    this.restoreStateDefault('educational');
   };
   // Professional Exp callabacks
   updateProfessionalExp(professionalExpID) {
@@ -193,7 +204,18 @@ class App extends Component {
     return i;
   }
   handleProfessionalExpEdit(event) {
-
+    const expID = event.target.parentNode.id;
+    const exp = this.state.professionalExps.find(
+      exp => exp.professionalExpID === expID
+    );
+    this.setState({
+      companyName: exp.companyName,
+      positionTitle: exp.positionTitle,
+      positionTasks: exp.positionTasks,
+      fromDate: exp.fromDate,
+      toDate: exp.toDate,
+      professionalExpID: exp.professionalExpID,
+    });
   }
   handleProfessionalExpSubmit(event) {
     const companyName = this.state.companyName;
@@ -210,23 +232,14 @@ class App extends Component {
       toDate,
       professionalExpID,
     }
-    // capture
     if (!(this.professionalExpExists(professionalExpID))) {
       this.setState({
         professionalExps: this.state.professionalExps.concat(professionalExp),
       })
     } else {
-      
+      this.updateProfessionalExp(professionalExpID);
     }
-    this.setState({
-      // restore to default
-      companyName: '',
-      positionTitle: '',
-      positionTasks: [],
-      fromDate: this.getHTMLFormattedDate(new Date()),
-      toDate: this.getHTMLFormattedDate(new Date()),
-      professionalExpID: uniqid(),
-    });
+    this.restoreStateDefault('professional');
   };
   // Skills callbacks
   getSkillIndex(skillID) {
@@ -237,18 +250,58 @@ class App extends Component {
     const result = this.stateItemExists(skillID, 'skill');
     return result;
   }
+  /**
+   * Sets the skillDescription displayed in the form equal to the one of the button clicked
+   * @param {*} event 
+   */
   handleSkillEdit(event) {
-    const skillID = event.target.parentNode.id
+    const skillID = event.target.parentNode.id;
     const skill = this.state.skills.find(skill => skill.skillID === skillID)
     this.setState({
       skillDescription: skill.skillDescription,
       skillID: skill.skillID,
     })
   }
+  handleSkillDelete(event) {
+    const skillID = event.target.parentNode.id;
+    const skill = this.getSkillIndex(skillID);
+
+  }
   /**
    * 
-   * @param {*} itemID 
-   * @param {*} itemType 
+   * @param {string} itemID 
+   * @param {string} itemType 
+   */
+  deleteStateItem(itemID, itemType) {
+    let stateItems, stateItemIndex;
+    switch (itemType) {
+      case 'educational':
+        stateItems = [...this.state.educationalExps];
+        stateItemIndex = this.getStateItemIndex(itemID, itemType);
+        stateItems.splice(stateItemIndex, 1);
+        this.setState({educationalExps: stateItems});
+        break;
+      case 'professional':
+        stateItems = [...this.state.professionalExps];
+        stateItemIndex = this.getStateItemIndex(itemID, itemType);
+        stateItems.splice(stateItemIndex, 1);
+        this.setState({professionalExps: stateItems});
+        break;
+      case 'skill':
+        stateItems = [...this.state.skils];
+        stateItemIndex = this.getStateItemIndex(itemID, itemType);
+        stateItems.splice(stateItemIndex, 1);
+        this.setState({skills: stateItems});
+        break;
+      default:
+        console.log('Invalid itemType provided')
+        break;
+    }
+  } 
+  /**
+   * 
+   * @param {string} itemID 
+   * @param {string} itemType 
    * 1. Create a copy of previous state array
    * 2. Update the item in the copied state array
    * 3. Overwrite old state array with new state array
@@ -311,6 +364,44 @@ class App extends Component {
   updateSkill(skillID) {
     this.updateStateItem(skillID, 'skill');
   }
+  /**
+   * Resets all related state properties for the item type back to default
+   * @param {string} type 'educational' || 'professional' || 'skill'
+   */
+  restoreStateDefault(type) {
+    switch (type) {
+      case 'educational':
+        this.setState({
+          schoolName: '',
+          major: '',
+          degreeType: '',
+          gpa: 4.00,
+          graduationDate: this.getHTMLFormattedDate(new Date()),
+          educationalExpID: uniqid(),
+        })
+        break;
+      case 'professional':
+        this.setState({
+          companyName: '',
+          positionTitle: '',
+          positionTasks: [],
+          fromDate: this.getHTMLFormattedDate(new Date()),
+          toDate: this.getHTMLFormattedDate(new Date()),
+          professionalExpID: uniqid(),
+        })
+        break;
+      case 'skill':
+        this.setState({
+          // restore to default
+          skillDescription: '',
+          skillID: uniqid(),
+        })
+        break;
+      default:
+        console.log('An invalid "type" was provided')
+        break;
+    }
+  }
   handleSkillSubmit(event) {
     event.preventDefault();
     const skillDescription = this.state.skillDescription;
@@ -320,18 +411,13 @@ class App extends Component {
       skillID,
     }
     if (!(this.skillExists(skillID))) {
-      // skill DOES NOT exist - add to state
       this.setState({
         skills: this.state.skills.concat(skill),
       });
     } else {
       this.updateSkill(skillID);
     }
-    this.setState({
-      // restore to default
-      skillDescription: '',
-      skillID: uniqid(),
-    })
+    this.restoreStateDefault('skill');
   };
 
   printPreview() {
@@ -435,10 +521,12 @@ class App extends Component {
                   />
                   <ProfessionalExpSectionOutput 
                     professionalExps = {professionalExps}
+                    onEdit = {this.handleProfessionalExpEdit}
                   />
                   <SkillsSectionOutput 
                     skills = {skills}
                     onEdit = {this.handleSkillEdit}
+                    onDelete = {this.handleSkillDelete}
                   />
                 </div>
               </div>

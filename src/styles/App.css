@@ -193,18 +193,23 @@ input:focus {
 .educational-exp, .professional-exp {
   margin-bottom: 1em;
 }
-.educational-exp {
+.educational-exp, .professional-exp, .skill {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.educational-exp, .professional-exp {
+  list-style: none;
 }
 .skill {
   height: 1.5em;
   margin-bottom: .25em;
-  position: relative;
 }
-.educational-exp:hover, .skill:hover {
+.educational-exp:hover, .professional-exp:hover, .skill:hover {
   background-color: #DEE2D6;
 }
-.educational-exp:hover .btn-show-on-hover, .skill:hover .btn-show-on-hover{
+.educational-exp:hover .btn-show-on-hover, .professional-exp:hover .btn-show-on-hover, .skill:hover .btn-show-on-hover{
   display: inline;
 }
 .btn-show-on-hover {
@@ -213,9 +218,6 @@ input:focus {
   z-index: 1;
   display: none;
   height: 100%;
-}
-.educational-exp, .professional-exp {
-  list-style: none;
 }
 .skills-list {
   margin-left: 1.25em;
