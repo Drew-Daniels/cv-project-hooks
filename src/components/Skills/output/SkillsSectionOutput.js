@@ -17,8 +17,8 @@ class SkillsSectionOutput extends Component {
                     <div className='skill'>
                       {skill.skillDescription}
                       <div className='btn-container'>
-                        <button className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button>
-                        <button className='btn-base btn-preview btn-show-on-hover' onClick={onDelete}>Delete</button>
+                        <button type='button' className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button>
+                        <button type='button' className='btn-base btn-preview btn-show-on-hover' onClick={onDelete}>Delete</button>
                       </div>
                     </div>
                    </li>;

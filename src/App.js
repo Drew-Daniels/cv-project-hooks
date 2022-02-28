@@ -98,6 +98,7 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    console.log('here');
   }
   getStateItemIndex(itemID, itemType) {
     let i;
