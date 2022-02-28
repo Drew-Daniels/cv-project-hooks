@@ -13,7 +13,7 @@ class EducationalExpSectionOutput extends Component {
         <h3 className='preview-section-header'>Educational Experience</h3>
         <ul>
           {educationalExps.map((educationalExp) => {
-            return <li key={educationalExp.educationalExpID} id={educationalExp.educationalExpID} className='educational-exp' onClick={onEdit}>
+            return <li key={educationalExp.educationalExpID} id={educationalExp.educationalExpID} className='educational-exp'>
                     <EducationalExpEntryOutput 
                       schoolName={educationalExp.schoolName}
                       major={educationalExp.major}
@@ -22,7 +22,7 @@ class EducationalExpSectionOutput extends Component {
                       graduationDate={educationalExp.graduationDate}
                     />
                     <button className='btn-base btn-preview btn-show-on-hover btn-edit' onClick={onEdit}>Edit</button>
-                    <button className='btn-base btn-preview btn-show-on-hover btn-delete' onClick={onDelete}>Delete</button>
+                    {/* <button className='btn-base btn-preview btn-show-on-hover btn-delete' onClick={onDelete}>Delete</button> */}
                    </li>
           })}
         </ul>

@@ -41,7 +41,7 @@ class App extends Component {
       educationalExps: [],
       schoolName: '',
       major: '',
-      degreeType: '',
+      degreeType: 'associates',
       gpa: 4.00,
       graduationDate: this.getHTMLFormattedDate(new Date()),
       educationalExpID: uniqid(),
@@ -72,12 +72,14 @@ class App extends Component {
     this.educationalExpExists = this.educationalExpExists.bind(this);
     this.updateEducationalExp = this.updateEducationalExp.bind(this);
     this.handleEducationalExpEdit = this.handleEducationalExpEdit.bind(this);
+    this.handleEducationalExpDelete = this.handleEducationalExpDelete.bind(this);
     this.handleEducationalExpSubmit = this.handleEducationalExpSubmit.bind(this);
 
     this.getProfessionalExpIndex = this.getProfessionalExpIndex.bind(this);
     this.professionalExpExists = this.professionalExpExists.bind(this);
     this.updateProfessionalExp = this.updateProfessionalExp.bind(this);
     this.handleProfessionalExpEdit = this.handleProfessionalExpEdit.bind(this);
+    this.handleProfessionalExpDelete = this.handleProfessionalExpDelete.bind(this);
     this.handleProfessionalExpSubmit = this.handleProfessionalExpSubmit.bind(this);
 
     this.getSkillIndex = this.getSkillIndex.bind(this);
@@ -168,6 +170,10 @@ class App extends Component {
       educationalExpID: educationalExp.educationalExpID,
     });
   }
+  handleEducationalExpDelete(event) {
+    const id = event.target.parentNode.id;
+    this.deleteStateItem(id, 'educational');
+  }
   handleEducationalExpSubmit(event) {
     event.preventDefault();
     const schoolName = this.state.schoolName;
@@ -218,6 +224,10 @@ class App extends Component {
       toDate: exp.toDate,
       professionalExpID: exp.professionalExpID,
     });
+  }
+  handleProfessionalExpDelete(event) {
+    const id = event.target.parentNode.id;
+    this.deleteStateItem(id, 'professional');
   }
   handleProfessionalExpSubmit(event) {
     const companyName = this.state.companyName;
@@ -375,7 +385,7 @@ class App extends Component {
         this.setState({
           schoolName: '',
           major: '',
-          degreeType: '',
+          degreeType: 'associates',
           gpa: 4.00,
           graduationDate: this.getHTMLFormattedDate(new Date()),
           educationalExpID: uniqid(),
@@ -519,10 +529,12 @@ class App extends Component {
                   <EducationalExpSectionOutput 
                     educationalExps = {educationalExps}
                     onEdit = {this.handleEducationalExpEdit}
+                    onDelete = {this.handleProfessionalExpDelete}
                   />
                   <ProfessionalExpSectionOutput 
                     professionalExps = {professionalExps}
                     onEdit = {this.handleProfessionalExpEdit}
+                    onDelete = {this.handleProfessionalExpDelete}
                   />
                   <SkillsSectionOutput 
                     skills = {skills}

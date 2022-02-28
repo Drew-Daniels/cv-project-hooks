@@ -49,6 +49,7 @@ class EducationalExpEntryInput extends Component {
                 name='degreeType' 
                 required
                 value='associates' 
+                checked={degreeType === 'associates'}
                 onChange={changeHandler}>
               </input>
               <label htmlFor='degree-type-1'>Associates</label>
@@ -60,6 +61,7 @@ class EducationalExpEntryInput extends Component {
                 name='degreeType' 
                 required
                 value='bachelors'
+                checked={degreeType === 'bachelors'}
                 onChange={changeHandler}>
               </input>
               <label htmlFor='degree-type-2'>Bachelors</label>
@@ -71,6 +73,7 @@ class EducationalExpEntryInput extends Component {
                 name='degreeType' 
                 required
                 value='masters' 
+                checked={degreeType === 'masters'}
                 onChange={changeHandler}>
               </input>
               <label htmlFor='degree-type-3'>Masters</label>
@@ -82,6 +85,7 @@ class EducationalExpEntryInput extends Component {
                 name='degreeType' 
                 required
                 value='doctorate' 
+                checked={degreeType === 'doctorate'}
                 onChange={changeHandler}>    
               </input>
               <label htmlFor='degree-type-4'>Doctoral</label>
@@ -94,7 +98,8 @@ class EducationalExpEntryInput extends Component {
             id='gpa' 
             type='number' 
             step='0.01' 
-            min='0' 
+            min='0'
+            max='4' 
             name='gpa' 
             required
             value={gpa} 
