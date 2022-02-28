@@ -47,7 +47,6 @@ class ProfessionalExpEntryOutput extends Component {
         <div className='position-tasks-container-preview'>
           <p className='position-tasks-preview'>{positionTasks}</p>
         </div>
-
       </div>
     )
   }

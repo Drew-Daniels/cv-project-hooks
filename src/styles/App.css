@@ -190,7 +190,7 @@ input:focus {
 .educational-exp:first-child, .professional-exp:first-child, .skill:first-child {
   margin-top: .25em;
 }
-.educational-exp, .professional-exp {
+.educational-exp, .professional-exp, .skill {
   margin-bottom: 1em;
   display: flex;
   flex-direction: column;
@@ -202,24 +202,26 @@ input:focus {
 .educational-exp, .professional-exp {
   list-style: none;
 }
-.skill {
+.skill-entry {
   height: 1.5em;
-  margin-bottom: .25em;
 }
-.educational-exp:hover, .professional-exp:hover, .skill:hover {
+.educational-exp:hover, .professional-exp:hover, .skill-entry:hover {
   background-color: #DEE2D6;
 }
-.educational-exp:hover .btn-show-on-hover, .professional-exp:hover .btn-show-on-hover, .skill:hover .btn-show-on-hover{
-  display: inline;
+.educational-exp:hover .btn-container, .professional-exp:hover .btn-container, .skill-entry:hover .btn-container {
+  display: flex;
+  width: 6em;
+  justify-content: space-between;
+  align-items: center;
 }
-.btn-show-on-hover {
+.btn-edit, .btn-delete {
+  height: 1em;
+}
+.btn-container {
   position: absolute;
-  right: 0;
-  z-index: 1;
+  right: 8em;
   display: none;
-  height: 100%;
 }
-.btn-show-on-hover
 .skills-list {
   margin-left: 1.25em;
 }

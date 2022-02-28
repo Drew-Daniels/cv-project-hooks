@@ -21,8 +21,10 @@ class ProfessionalExpSectionOutput extends Component {
                       fromDate = {professionalExp.fromDate}
                       toDate = {professionalExp.toDate}
                     />
-                    {/* <button className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button> */}
-                    <button className='btn-base btn-preview btn-show-on-hover' onClick={onDelete}>Delete</button>
+                    <div className='btn-container'>
+                      <button className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button>
+                      <button className='btn-base btn-preview btn-show-on-hover' onClick={onDelete}>Delete</button>  
+                    </div>
                    </li>
           })}
         </ul>

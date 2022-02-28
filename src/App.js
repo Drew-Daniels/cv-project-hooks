@@ -157,7 +157,7 @@ class App extends Component {
     this.updateStateItem(educationalExpID, 'educational');
   }
   handleEducationalExpEdit(event) {
-    const educationalExpID = event.target.parentNode.id;
+    const educationalExpID = event.target.parentNode.parentNode.id;
     const educationalExp = this.state.educationalExps.find(
       educationalExp => educationalExp.educationalExpID === educationalExpID
     );
@@ -212,7 +212,7 @@ class App extends Component {
     return i;
   }
   handleProfessionalExpEdit(event) {
-    const expID = event.target.parentNode.id;
+    const expID = event.target.parentNode.parentNode.id;
     const exp = this.state.professionalExps.find(
       exp => exp.professionalExpID === expID
     );
@@ -267,7 +267,7 @@ class App extends Component {
    * @param {*} event 
    */
   handleSkillEdit(event) {
-    const skillID = event.target.parentNode.id;
+    const skillID = event.target.parentNode.parentNode.parentNode.id;
     const skill = this.state.skills.find(skill => skill.skillID === skillID)
     this.setState({
       skillDescription: skill.skillDescription,
