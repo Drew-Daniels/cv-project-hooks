@@ -7,7 +7,7 @@ class ProfessionalExpSectionOutput extends Component {
   };
 
   render() {
-    const {professionalExps, onEdit} = this.props;
+    const {professionalExps, onEdit, onDelete} = this.props;
     return (
       <section id='professional-preview-section' className='preview-section'>
         <h3 className='preview-section-header'>Business Experience</h3>
@@ -22,6 +22,7 @@ class ProfessionalExpSectionOutput extends Component {
                       toDate = {professionalExp.toDate}
                     />
                     <button className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button>
+                    <button className='btn-base btn-preview btn-show-on-hover' onClick={onDelete}>Delete</button>
                    </li>
           })}
         </ul>

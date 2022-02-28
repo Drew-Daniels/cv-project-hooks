@@ -63,6 +63,7 @@ class App extends Component {
     this.getStateItemIndex = this.getStateItemIndex.bind(this);
     this.stateItemExists = this.stateItemExists.bind(this);
     this.updateStateItem = this.updateStateItem.bind(this);
+    this.deleteStateItem = this.deleteStateItem.bind(this);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -83,6 +84,7 @@ class App extends Component {
     this.skillExists = this.skillExists.bind(this);
     this.updateSkill = this.updateSkill.bind(this);
     this.handleSkillEdit = this.handleSkillEdit.bind(this);
+    this.handleSkillDelete = this.handleSkillDelete.bind(this);
     this.handleSkillSubmit = this.handleSkillSubmit.bind(this);
 
     this.printPreview = this.printPreview.bind(this);
@@ -264,8 +266,7 @@ class App extends Component {
   }
   handleSkillDelete(event) {
     const skillID = event.target.parentNode.id;
-    const skill = this.getSkillIndex(skillID);
-
+    this.deleteStateItem(skillID, 'skill');
   }
   /**
    * 
@@ -288,7 +289,7 @@ class App extends Component {
         this.setState({professionalExps: stateItems});
         break;
       case 'skill':
-        stateItems = [...this.state.skils];
+        stateItems = [...this.state.skills];
         stateItemIndex = this.getStateItemIndex(itemID, itemType);
         stateItems.splice(stateItemIndex, 1);
         this.setState({skills: stateItems});

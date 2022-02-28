@@ -15,7 +15,7 @@ class SkillsSectionOutput extends Component {
           {skills.map((skill) => {
             return <li key={skill.skillID} id={skill.skillID} className='skill'>
                     {skill.skillDescription}
-                    <button className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button>
+                    {/* <button className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button> */}
                     <button className='btn-base btn-preview btn-show-on-hover' onClick={onDelete}>Delete</button>
                    </li>;
           })}
