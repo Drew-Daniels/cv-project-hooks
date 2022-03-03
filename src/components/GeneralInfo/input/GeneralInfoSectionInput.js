@@ -1,40 +1,35 @@
-import { Component } from 'react';
+function GeneralInfoSectionInput(props) {
 
-class GeneralInfoSectionInput extends Component {
-  constructor(props) {
-    super();
-  }
-
-  submitHandler(event) {
+  function submitHandler(event) {
     event.preventDefault();
   }
-  render() {
-    return (
-      <form id='general-section' className='form' onSubmit={this.submitHandler}>
-        <h3 className='form-header'>General</h3>
-        <div className='form-control'>
-          <label htmlFor='first-name'>First Name:</label>
-          <input id='first-name' name='firstName' type='text' onChange={this.props.changeHandler}/>
-        </div>
-        <div className='form-control'>
-          <label htmlFor='last-name'>Last Name:</label>
-          <input id='last-name' name='lastName' type='text' onChange={this.props.changeHandler}/>
-        </div>
-        <div className='form-control'>
-        <label htmlFor='phone-number'>Phone Number:</label>
-        <input id='phone-number' name='phoneNumber' type='tel' onChange={this.props.changeHandler}/>
-        </div>
-        <div className='form-control'>
-          <label htmlFor='email'>Email:</label>
-          <input id='email' name='email' type='text' onChange={this.props.changeHandler}/>
-        </div>
-        <div className='form-control'>
-          <label htmlFor='linkedin-url'>LinkedIn URL:</label>
-          <input id='linkedin-url' name='linkedInURL' type='text' onChange={this.props.changeHandler}/>
-        </div>
-      </form>
-    );
-  }
+  
+  return (
+    <form id='general-section' className='form' onSubmit={submitHandler}>
+      <h3 className='form-header'>General</h3>
+      <div className='form-control'>
+        <label htmlFor='first-name'>First Name:</label>
+        <input id='first-name' name='firstName' type='text' onChange={props.changeHandler}/>
+      </div>
+      <div className='form-control'>
+        <label htmlFor='last-name'>Last Name:</label>
+        <input id='last-name' name='lastName' type='text' onChange={props.changeHandler}/>
+      </div>
+      <div className='form-control'>
+      <label htmlFor='phone-number'>Phone Number:</label>
+      <input id='phone-number' name='phoneNumber' type='tel' onChange={props.changeHandler}/>
+      </div>
+      <div className='form-control'>
+        <label htmlFor='email'>Email:</label>
+        <input id='email' name='email' type='text' onChange={props.changeHandler}/>
+      </div>
+      <div className='form-control'>
+        <label htmlFor='linkedin-url'>LinkedIn URL:</label>
+        <input id='linkedin-url' name='linkedInURL' type='text' onChange={props.changeHandler}/>
+      </div>
+    </form>
+  );
 }
+
 
 export default GeneralInfoSectionInput;
