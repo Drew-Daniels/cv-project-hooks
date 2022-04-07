@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/cv-project-hooks/static/css/main.c292bd63.css",
+    "main.js": "/cv-project-hooks/static/js/main.50e6f7b4.js",
+    "static/media/github-icon.svg": "/cv-project-hooks/static/media/github-icon.41d7e1a77fcd7ac6a707880e239814b5.svg",
+    "index.html": "/cv-project-hooks/index.html",
+    "static/media/form-submit-icon.svg": "/cv-project-hooks/static/media/form-submit-icon.2ca585ec3937eaf7155dddd8e7b5a96c.svg",
+    "static/media/cv-application-icon.svg": "/cv-project-hooks/static/media/cv-application-icon.35f0eff446fbe8b26262eef2d0e21d63.svg",
+    "static/media/add-entry-icon.svg": "/cv-project-hooks/static/media/add-entry-icon.a23346b389e7edd7a37fa64d93460838.svg",
+    "main.c292bd63.css.map": "/cv-project-hooks/static/css/main.c292bd63.css.map",
+    "main.50e6f7b4.js.map": "/cv-project-hooks/static/js/main.50e6f7b4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c292bd63.css",
+    "static/js/main.50e6f7b4.js"
+  ]
+}
