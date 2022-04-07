@@ -106,7 +106,6 @@ function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log('here');
   }
   function getStateItemIndex(itemID, itemType) {
     let i;
