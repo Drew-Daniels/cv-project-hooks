@@ -12,7 +12,9 @@ function ProfessionalExpEntryOutput(props) {
 
   function parseHTMLDateToProfessionalDate(dateStr) {
     const date = parse(dateStr, 'yyyy-MM-dd', new Date());
-    if (date.getDate() === new Date().getDate()) {
+    const today = new Date()
+    today.setHours(0, 0, 0, 0);
+    if (date.toString() === today.toString()) {
       return 'Present'
     } else {
       return format(date, 'MMMM yyyy');
