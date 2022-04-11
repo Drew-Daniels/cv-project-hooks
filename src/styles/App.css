@@ -185,9 +185,6 @@ input:focus {
   justify-content: space-between;
   align-items: center;
 }
-.btn-edit, .btn-delete {
-  height: 1em;
-}
 .btn-container {
   position: absolute;
   right: 15em;

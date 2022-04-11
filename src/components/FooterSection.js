@@ -7,7 +7,7 @@ function FooterSection(props) {
   return (
     <Container fluid as='footer' className='footer d-flex flex-column p-5'>
       <Container as='a' id='github-link-project' className='d-flex justify-content-center' href='https://github.com/Drew-Daniels/cv-project'>
-        <IconContext.Provider value={{ size: '2em', alignSelf: 'center'}}>
+        <IconContext.Provider value={{ size: '2em', alignSelf: 'center', color: 'black'}}>
           <GitHubIcon />
         </IconContext.Provider>
       </Container>

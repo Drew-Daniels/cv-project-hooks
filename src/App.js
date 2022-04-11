@@ -160,7 +160,7 @@ function App() {
     updateStateItem(educationalExpID, 'educational');
   }
   function handleEducationalExpEdit(event) {
-    const educationalExpID = event.target.parentNode.parentNode.parentNode.id;
+    const educationalExpID = event.target.parentNode.parentNode.id;
     const educationalExp = educationalExps.find(
       educationalExp => educationalExp.educationalExpID === educationalExpID
     );
@@ -175,7 +175,7 @@ function App() {
       }));
   };
   function handleEducationalExpDelete(event) {
-    const id = event.target.parentNode.parentNode.parentNode.id;
+    const id = event.target.parentNode.parentNode.id;
     deleteStateItem(id, 'educational');
   }
   function handleEducationalExpSubmit(event) {
@@ -208,7 +208,7 @@ function App() {
     return result;
   }
   function handleProfessionalExpEdit(event) {
-    const expID = event.target.parentNode.parentNode.parentNode.id;
+    const expID = event.target.parentNode.parentNode.id;
     const exp = professionalExps.find(
       exp => exp.professionalExpID === expID
     );
@@ -223,7 +223,7 @@ function App() {
       }));
   }
   function handleProfessionalExpDelete(event) {
-    const id = event.target.parentNode.parentNode.parentNode.id;
+    const id = event.target.parentNode.parentNode.id;
     deleteStateItem(id, 'professional');
   }
   function handleProfessionalExpSubmit(event) {

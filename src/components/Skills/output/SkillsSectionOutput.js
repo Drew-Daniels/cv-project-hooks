@@ -16,13 +16,11 @@ function SkillsSectionOutput(props) {
                   <Container className='skill'>
                     <span>{skill.skillDescription}</span>
                     <ButtonGroup className='btn-container'>
-                    <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover btn-edit' onClick={onEdit}>
+                    <Button size='sm' type='button' className= 'btn-show-on-hover d-flex justify-content-center' onClick={onEdit} style={{ backgroundColor: '#FF6E40', borderColor: 'white'}} >
                       <EditIcon />
-                      <span>Edit</span>
                     </Button>
-                    <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover btn-delete' onClick={onDelete}>
+                    <Button size='sm' type='button' className='btn-show-on-hover d-flex justify-content-center' onClick={onDelete} style={{ backgroundColor: '#FF6E40', borderColor: 'white'}} >
                       <DeleteIcon />
-                      <span>Delete</span>
                     </Button>
                   </ButtonGroup>
                   </Container>
