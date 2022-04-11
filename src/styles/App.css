@@ -91,7 +91,7 @@ input:focus {
 }
 .form {
   padding: 1em;
-  background-color: gray;
+  background-color: rgba(255, 110, 64, 1);
   border-radius: .25em;
 }
 .header-container {
@@ -177,7 +177,7 @@ input:focus {
   height: 1.5em;
 }
 .educational-exp:hover, .professional-exp:hover, .skill-entry:hover {
-  background-color: #DEE2D6;
+  background-color: rgba(0, 123, 255, .2);
 }
 .educational-exp:hover .btn-container, .professional-exp:hover .btn-container, .skill-entry:hover .btn-container {
   display: flex;
@@ -198,6 +198,10 @@ input:focus {
 }
 .card {
   margin-bottom: 1em;
+  background-color: #E65100;
+}
+.card-header {
+  color: white;
 }
 .title {
   margin-bottom: 0;
