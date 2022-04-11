@@ -119,21 +119,45 @@ function EducationalExpEntryInput(props) {
           label='School name'
           className='mb-3'
         >
-          <Form.Control type='text' placeholder='Type school name' onChange={changeHandler} required />
+          <Form.Control
+            name='schoolName'
+            type='text' 
+            placeholder='Type school name' 
+            value={schoolName}
+            onChange={changeHandler} 
+            required 
+          />
         </FloatingLabel>
         <FloatingLabel
           controlId='major'
           label='Major'
           className='mb-3'
         >
-          <Form.Control type='text' placeholder='Type major' onChange={changeHandler} required />
+          <Form.Control 
+            name='major'
+            type='text' 
+            placeholder='Type major' 
+            value={major}
+            onChange={changeHandler} 
+            required 
+          />
         </FloatingLabel>
         <FloatingLabel
           controlId='gpa'
           label='GPA'
           className='mb-3'
         >
-          <Form.Control type='number' placeholder='4' onChange={changeHandler} required min='0' max='4' step='0.01' />
+          <Form.Control
+            name='gpa'
+            type='number'
+            placeholder='4' 
+            value={gpa}
+            onChange={changeHandler} 
+            required 
+            min='0' 
+            max='4' 
+            step='0.01'
+          />
         </FloatingLabel>
         <Form.Group className='mb-3'>
           <Form.Label>Graduation Date</Form.Label>

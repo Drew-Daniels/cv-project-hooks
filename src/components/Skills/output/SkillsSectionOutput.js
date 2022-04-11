@@ -1,5 +1,8 @@
 import { Container, ButtonGroup, Button } from 'react-bootstrap';
 
+import { AiFillEdit as EditIcon } from 'react-icons/ai';
+import { AiFillDelete as DeleteIcon } from 'react-icons/ai';
+
 function SkillsSectionOutput(props) {
 
   const {skills, onEdit, onDelete} = props;
@@ -13,9 +16,15 @@ function SkillsSectionOutput(props) {
                   <Container className='skill'>
                     <span>{skill.skillDescription}</span>
                     <ButtonGroup className='btn-container'>
-                      <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</Button>
-                      <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover' onClick={onDelete}>Delete</Button>
-                    </ButtonGroup>
+                    <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover btn-edit' onClick={onEdit}>
+                      <EditIcon />
+                      <span>Edit</span>
+                    </Button>
+                    <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover btn-delete' onClick={onDelete}>
+                      <DeleteIcon />
+                      <span>Delete</span>
+                    </Button>
+                  </ButtonGroup>
                   </Container>
                   </li>;
         })}

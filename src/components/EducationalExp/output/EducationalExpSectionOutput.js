@@ -1,4 +1,7 @@
 import EducationalExpEntryOutput from './EducationalExpEntryOutput';
+import { Container, ButtonGroup, Button } from 'react-bootstrap';
+import { AiFillEdit as EditIcon } from 'react-icons/ai';
+import { AiFillDelete as DeleteIcon } from 'react-icons/ai';
 
 function EducationalExpSectionOutput(props) {
 
@@ -7,7 +10,7 @@ function EducationalExpSectionOutput(props) {
   return (
     <section id='education-preview-section' className='preview-section'>
       <h3 className='preview-section-header'>Educational Experience</h3>
-      <ul>
+      <Container as='ul'>
         {educationalExps.map((educationalExp) => {
           return <li key={educationalExp.educationalExpID} id={educationalExp.educationalExpID} className='educational-exp'>
                   <EducationalExpEntryOutput 
@@ -17,13 +20,19 @@ function EducationalExpSectionOutput(props) {
                     gpa={educationalExp.gpa}
                     graduationDate={educationalExp.graduationDate}
                   />
-                  <div className='btn-container'>
-                    <button type='button' className='btn-base btn-preview btn-show-on-hover btn-edit' onClick={onEdit}>Edit</button>
-                    <button type='button' className='btn-base btn-preview btn-show-on-hover btn-delete' onClick={onDelete}>Delete</button>
-                  </div>
+                  <ButtonGroup className='btn-container'>
+                    <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover btn-edit' onClick={onEdit}>
+                      <EditIcon />
+                      <span>Edit</span>
+                    </Button>
+                    <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover btn-delete' onClick={onDelete}>
+                      <DeleteIcon />
+                      <span>Delete</span>
+                    </Button>
+                  </ButtonGroup>
                   </li>
         })}
-      </ul>
+      </Container>
     </section>
   );
 };

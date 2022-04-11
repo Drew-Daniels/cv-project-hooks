@@ -108,9 +108,6 @@ function App() {
     return format(date, 'yyyy-MM-dd');
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
   function getStateItemIndex(itemID, itemType) {
     let i;
     switch (itemType) {
@@ -149,12 +146,12 @@ function App() {
   }
   function handleChange(event) {
     const target = event.target;
-    console.log(target);
     const name = target.name;
-    console.log(name)
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    let value = target.type === 'checkbox' ? target.checked : target.value;
+    if ((name === 'linkedInURL') && (value !== '')) {
+      value = 'https://www.linkedin.com/in/' + value;
+    }
     setState(prevState => ({...prevState, [name]: value}));
-
   };
   // Educational Exp callbacks
   function educationalExpExists(educationalExpID) {
@@ -165,11 +162,10 @@ function App() {
     updateStateItem(educationalExpID, 'educational');
   }
   function handleEducationalExpEdit(event) {
-    const educationalExpID = event.target.parentNode.parentNode.id;
+    const educationalExpID = event.target.parentNode.parentNode.parentNode.id;
     const educationalExp = educationalExps.find(
       educationalExp => educationalExp.educationalExpID === educationalExpID
     );
-    // setSchoolName(educationalExp.schoolName);
     setState(prevState => (
       {...prevState, 
         schoolName: educationalExp.schoolName,
@@ -181,7 +177,7 @@ function App() {
       }));
   };
   function handleEducationalExpDelete(event) {
-    const id = event.target.parentNode.parentNode.id;
+    const id = event.target.parentNode.parentNode.parentNode.id;
     deleteStateItem(id, 'educational');
   }
   function handleEducationalExpSubmit(event) {
@@ -214,7 +210,7 @@ function App() {
     return result;
   }
   function handleProfessionalExpEdit(event) {
-    const expID = event.target.parentNode.parentNode.id;
+    const expID = event.target.parentNode.parentNode.parentNode.id;
     const exp = professionalExps.find(
       exp => exp.professionalExpID === expID
     );
@@ -229,7 +225,7 @@ function App() {
       }));
   }
   function handleProfessionalExpDelete(event) {
-    const id = event.target.parentNode.parentNode.id;
+    const id = event.target.parentNode.parentNode.parentNode.id;
     deleteStateItem(id, 'professional');
   }
   function handleProfessionalExpSubmit(event) {
@@ -261,7 +257,7 @@ function App() {
    * @param {*} event 
    */
    function handleSkillEdit(event) {
-    const skillID = event.target.parentNode.parentNode.parentNode.id;
+    const skillID = event.target.parentNode.parentNode.parentNode.parentNode.id;
     const skill = skills.find(skill => skill.skillID === skillID)
     setState(prevState => (
       {...prevState,
@@ -273,7 +269,7 @@ function App() {
       }));
   }
   function handleSkillDelete(event) {
-    const skillID = event.target.parentNode.parentNode.parentNode.id;
+    const skillID = event.target.parentNode.parentNode.parentNode.parentNode.id;
     deleteStateItem(skillID, 'skill');
   }
   /**
@@ -290,7 +286,12 @@ function App() {
         stateItems.splice(stateItemIndex, 1);
         setState(prevState => (
           {...prevState,
-            educationalExps: stateItems
+            educationalExps: stateItems,
+            schoolName: '',
+            major: '',
+            degreeType: 'associates', 
+            gpa: 4,
+            graduationDate: getHTMLFormattedDate(new Date()),
           }));
         break;
       case 'professional':
@@ -299,7 +300,12 @@ function App() {
         stateItems.splice(stateItemIndex, 1);
         setState(prevState => (
           {...prevState,
-            professionalExps: stateItems
+            professionalExps: stateItems,
+            companyName: '',
+            positionTitle: '',
+            positionTasks: '',
+            fromDate: getHTMLFormattedDate(new Date()),
+            toDate: getHTMLFormattedDate(new Date()),
           }));
         break;
       case 'skill':
@@ -308,7 +314,8 @@ function App() {
         stateItems.splice(stateItemIndex, 1);
         setState(prevState => (
           {...prevState,
-            skills: stateItems
+            skills: stateItems,
+            skillDescription: '',
           }));
         break;
       default:
@@ -318,11 +325,8 @@ function App() {
   } 
   /**
    * 
-   * @param {string} itemID 
-   * @param {string} itemType 
-   * 1. Create a copy of previous state array
-   * 2. Update the item in the copied state array
-   * 3. Overwrite old state array with new state array
+   * @param {string} itemID
+   * @param {string} itemType
    */
   function updateStateItem(itemID, itemType) {
     let i, stateItems, stateItem;

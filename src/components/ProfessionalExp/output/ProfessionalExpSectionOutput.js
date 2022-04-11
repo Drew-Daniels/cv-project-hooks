@@ -1,4 +1,7 @@
 import ProfessionalExpEntryOutput from './ProfessionalExpEntryOutput';
+import { ButtonGroup, Button } from 'react-bootstrap';
+import { AiFillEdit as EditIcon } from 'react-icons/ai';
+import { AiFillDelete as DeleteIcon } from 'react-icons/ai';
 
 function ProfessionalExpSectionOutput(props) {
 
@@ -17,10 +20,16 @@ function ProfessionalExpSectionOutput(props) {
                     fromDate = {professionalExp.fromDate}
                     toDate = {professionalExp.toDate}
                   />
-                  <div className='btn-container'>
-                    <button type='button' className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button>
-                    <button type='button' className='btn-base btn-preview btn-show-on-hover' onClick={onDelete}>Delete</button>  
-                  </div>
+                  <ButtonGroup className='btn-container'>
+                    <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover btn-edit' onClick={onEdit}>
+                      <EditIcon />
+                      <span>Edit</span>
+                    </Button>
+                    <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover btn-delete' onClick={onDelete}>
+                      <DeleteIcon />
+                      <span>Delete</span>
+                    </Button>
+                  </ButtonGroup>
                   </li>
         })}
       </ul>
