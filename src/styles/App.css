@@ -3,7 +3,6 @@
 }
 html, body, button {
   font-family: 'Roboto', sans-serif;
-  color: #F3F8F2;
 }
 li {
   display: list-item;
@@ -16,7 +15,7 @@ input:focus {
   outline-color: #3581B8;
 }
 @media print {
-  .form-container, .header, .header-container, .footer, .form-submit-btn-container {
+  .forms-container, .header, .header-container, .footer, .form-submit-btn-container {
     display: none !important;
   }
   .preview-container {
@@ -50,16 +49,6 @@ input:focus {
 #skills-section {
   background-color: #342E37;
 }
-.ui {
-  display: flex;
-  flex-direction: column;
-}
-.form-and-preview-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 1em;
-}
 .header {
   display: flex;
   justify-content: center;
@@ -91,26 +80,23 @@ input:focus {
 .preview-section-header {
   text-decoration: underline;
   text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1em;
 }
 .school-name-preview, .company-name-preview {
   font-weight: 600;
 }
-.form-container {
-  width: 25vw;
-  min-width: 30em;
-  padding: 0 1em;
+.forms-container {
+  width: 30em;
+}
+.form {
+  padding: 1em;
+  background-color: gray;
+  border-radius: .25em;
 }
 .header-container {
   display: flex;
   justify-content: center;
-}
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 5em;
-  padding: 2em 0;
-  background-color: #342E37;
 }
 .github-profile-container {
   display: flex;
@@ -124,16 +110,6 @@ input:focus {
 }
 .github-icon {
   height: 2em;
-}
-.form {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1em;
-  border-radius: 1em;
-  padding: 1em;
-}
-.form:last-child {
-  margin-bottom: 0;
 }
 .form-header {
   font-weight: 700;
@@ -171,11 +147,6 @@ input:focus {
   background-color: #342E37;
   justify-content: space-around;
   font-size: 1.25em;
-}
-.form-control {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom:.5em;
 }
 .company-name-and-dates-preview-container {
   display: flex;
@@ -227,4 +198,10 @@ input:focus {
 }
 .gpa-label {
   margin-right: .25em;
+}
+.card {
+  margin-bottom: 1em;
+}
+.title {
+  margin-bottom: 0;
 }

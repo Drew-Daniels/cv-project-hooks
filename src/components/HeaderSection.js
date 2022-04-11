@@ -1,10 +1,13 @@
-import cvApplicationIcon from '../images/icons/cv-application-icon.svg';
+import { FcBriefcase as CVApplicationIcon} from 'react-icons/fc';
+import { IconContext } from 'react-icons';
 
 function HeaderSection(props) {
     return (
       <header className='header'>
-        <img src={cvApplicationIcon} alt='Briefcase' className='header-image'></img>
-        <h1>CV Application</h1>
+        <IconContext.Provider value={{ size: '2em' }}>
+          <CVApplicationIcon />
+        </IconContext.Provider>
+        <h1 className='title'>CV Application</h1>
       </header>
     )
 }

@@ -5,6 +5,9 @@ import { format } from 'date-fns';
 
 import HeaderSection from './components/HeaderSection';
 import FooterSection from './components/FooterSection';
+
+import { Container, Button } from 'react-bootstrap';
+
 // import form components
 import GeneralInfoSectionInput from './components/GeneralInfo/input/GeneralInfoSectionInput';
 import EducationalExpSectionInput from './components/EducationalExp/input/EducationalExpSectionInput';
@@ -19,13 +22,14 @@ import SkillsSectionOutput from './components/Skills/output/SkillsSectionOutput'
 
 // import styling
 import './styles/Reset.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/App.css';
 import './styles/EducationalExp.css';
 import './styles/GeneralInfo.css';
 import './styles/ProfessionalExp.css';
 
 // import images
-import formSubmitIcon from './images/icons/form-submit-icon.svg';
+import { FcPrint as PrintIcon } from 'react-icons/fc';
 
 function App() {
 
@@ -144,8 +148,10 @@ function App() {
     return result;
   }
   function handleChange(event) {
-    const target = event.target
+    const target = event.target;
+    console.log(target);
     const name = target.name;
+    console.log(name)
     const value = target.type === 'checkbox' ? target.checked : target.value;
     setState(prevState => ({...prevState, [name]: value}));
 
@@ -434,13 +440,13 @@ function App() {
   }
 
   return (
-    <div className='content-container'>
-      <div className='content'>
+    <Container fluid>
+      <Container fluid className='content'>
         <HeaderSection />
-        <div className='ui'>
-          <div className='form-and-preview-container'>
-            <div className='form-container'>
-              <div id='form' onSubmit={handleSubmit} noValidate>
+        <Container fluid className='d-flex flex-column'>
+          <Container fluid className='d-flex flex-wrap justify-content-center'>
+            <Container className='forms-container'>
+              <Container id='form' noValidate>
                 <GeneralInfoSectionInput 
                   changeHandler = {handleChange}
                 />
@@ -459,10 +465,10 @@ function App() {
                   changeHandler = {handleChange}
                   submitHandler = {handleSkillSubmit}
                 />
-            </div>
-            </div>
-            <div className='preview-container'>
-              <div id='preview'>
+              </Container>
+            </Container>
+            <Container className='preview-container p-2 flex-grow-1 bd-highlight'>
+              <Container id='preview'>
                 <GeneralInfoSectionOutput 
                   firstName = {firstName}
                   lastName = {lastName}
@@ -485,19 +491,19 @@ function App() {
                   onEdit = {handleSkillEdit}
                   onDelete = {handleSkillDelete}
                 />
-              </div>
-            </div>
-          </div>
-          <div className='form-submit-btn-container'>
-            <button id='btn-print-preview' className='btn-base' onClick={printPreview}>
-              <img src={formSubmitIcon} alt='printer'></img>
+              </Container>
+            </Container>
+          </Container>
+          <Container className='form-submit-btn-container'>
+            <Button onClick={printPreview}>
+              <PrintIcon style={{ marginRight: '.25em' }}/>
               <span>Print</span>
-            </button>
-          </div>
-        </div>
-      </div>
+            </Button>
+          </Container>
+        </Container>
+      </Container>
       <FooterSection />
-    </div>
+    </Container>
   )
 }
 

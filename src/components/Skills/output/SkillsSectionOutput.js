@@ -1,3 +1,5 @@
+import { Container, ButtonGroup, Button } from 'react-bootstrap';
+
 function SkillsSectionOutput(props) {
 
   const {skills, onEdit, onDelete} = props;
@@ -8,13 +10,13 @@ function SkillsSectionOutput(props) {
       <ul className='skills-list'>
         {skills.map((skill) => {
           return <li key={skill.skillID} id={skill.skillID} className='skill-entry'>
-                  <div className='skill'>
-                    {skill.skillDescription}
-                    <div className='btn-container'>
-                      <button type='button' className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</button>
-                      <button type='button' className='btn-base btn-preview btn-show-on-hover' onClick={onDelete}>Delete</button>
-                    </div>
-                  </div>
+                  <Container className='skill'>
+                    <span>{skill.skillDescription}</span>
+                    <ButtonGroup className='btn-container'>
+                      <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover' onClick={onEdit}>Edit</Button>
+                      <Button size='sm' type='button' className='btn-base btn-preview btn-show-on-hover' onClick={onDelete}>Delete</Button>
+                    </ButtonGroup>
+                  </Container>
                   </li>;
         })}
       </ul>
