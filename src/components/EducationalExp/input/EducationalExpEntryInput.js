@@ -142,6 +142,23 @@ function EducationalExpEntryInput(props) {
             required 
           />
         </FloatingLabel>
+        <Form.Group className='mb-3'>
+          <Form.Label>Degree</Form.Label>
+          {['associates', 'bachelors', 'masters', 'doctoral'].map((thisDegree, i) => {
+            return (
+              <Form.Check key={i}
+                id={'degree-type-' + i}
+                name='degreeType'
+                type='radio'
+                label={thisDegree[0].toUpperCase() + thisDegree.slice(1)}
+                value={thisDegree}
+                onChange={changeHandler}
+                checked={degreeType === thisDegree}
+                required
+              />
+            )
+          })}
+        </Form.Group>
         <FloatingLabel
           controlId='gpa'
           label='GPA'

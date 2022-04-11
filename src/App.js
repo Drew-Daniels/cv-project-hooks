@@ -146,8 +146,11 @@ function App() {
   }
   function handleChange(event) {
     const target = event.target;
+    console.log(target)
     const name = target.name;
+    console.log(name)
     let value = target.type === 'checkbox' ? target.checked : target.value;
+    console.log(value)
     if ((name === 'linkedInURL') && (value !== '')) {
       value = 'https://www.linkedin.com/in/' + value;
     }
