@@ -1,4 +1,4 @@
-import { Form, FloatingLabel } from 'react-bootstrap';
+import { Form, Row, Col, FloatingLabel } from 'react-bootstrap';
 
 function ProfessionalExpEntryInput(props) {
 
@@ -56,26 +56,34 @@ function ProfessionalExpEntryInput(props) {
           style={{ height: '100px' }}
           required />
       </FloatingLabel>
-      <Form.Group className='mb-3'>
-        <Form.Label>From Date</Form.Label>
-        <Form.Control 
-          id='from-date'
-          type='date'
-          name='fromDate'
-          value={fromDate}
-          onChange={changeHandler}
-        ></Form.Control>
-      </Form.Group>
-      <Form.Group className='mb-3'>
-        <Form.Label>To Date</Form.Label>
-        <Form.Control 
-          id='to-date'
-          type='date'
-          name='toDate'
-          value={toDate}
-          onChange={changeHandler}
-        ></Form.Control>
-      </Form.Group>
+      <Row>
+        <Col>
+          <Form.Group className='mb-3'>
+            <Form.Label>From Date</Form.Label>
+            <Form.Control 
+              id='from-date'
+              type='date'
+              name='fromDate'
+              value={fromDate}
+              onChange={changeHandler}
+            ></Form.Control>
+          </Form.Group>
+        </Col>
+        <Col>
+          <Form.Group className='mb-3'>
+            <Form.Label>To Date</Form.Label>
+            <Form.Control 
+              id='to-date'
+              type='date'
+              name='toDate'
+              value={toDate}
+              onChange={changeHandler}
+            ></Form.Control>
+          </Form.Group>
+        </Col>
+      </Row>
+
+
     </div>
   );
 }

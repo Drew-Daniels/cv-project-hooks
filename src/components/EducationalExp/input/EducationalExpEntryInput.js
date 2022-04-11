@@ -1,4 +1,4 @@
-import { Form, FloatingLabel } from 'react-bootstrap';
+import { Form, Row, Col, FloatingLabel } from 'react-bootstrap';
 
 function EducationalExpEntryInput(props) {
 
@@ -58,33 +58,41 @@ function EducationalExpEntryInput(props) {
             )
           })}
         </Form.Group>
-        <FloatingLabel
-          controlId='gpa'
-          label='GPA'
-          className='mb-3'
-        >
-          <Form.Control
-            name='gpa'
-            type='number'
-            placeholder='4' 
-            value={gpa}
-            onChange={changeHandler} 
-            required 
-            min='0' 
-            max='4' 
-            step='0.01'
-          />
-        </FloatingLabel>
-        <Form.Group className='mb-3'>
-          <Form.Label>Graduation Date</Form.Label>
-          <Form.Control 
-            id='graduation-date'
-            type='date'
-            name='graduationDate'
-            value={graduationDate}
-            onChange={changeHandler}
-          ></Form.Control>
-        </Form.Group>
+        <Row className='d-flex align-items-end'>
+          <Col>
+            <FloatingLabel
+              controlId='gpa'
+              label='GPA'
+              className='mb-3'
+            >
+              <Form.Control
+                name='gpa'
+                type='number'
+                placeholder='4' 
+                value={gpa}
+                onChange={changeHandler} 
+                required 
+                min='0' 
+                max='4' 
+                step='0.01'
+              />
+            </FloatingLabel>
+          </Col>
+          <Col>
+            <Form.Group className='mb-3'>
+              <Form.Label>Graduation Date</Form.Label>
+              <Form.Control 
+                id='graduation-date'
+                type='date'
+                name='graduationDate'
+                value={graduationDate}
+                onChange={changeHandler}
+              ></Form.Control>
+            </Form.Group>
+          </Col>
+        </Row>
+
+
       </div>
   );
 };
