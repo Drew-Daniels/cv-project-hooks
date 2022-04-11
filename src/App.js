@@ -119,8 +119,6 @@ function App() {
         break;
       case 'skill':
         i = skills.findIndex(skill => skill.skillID === itemID);
-        console.log(skills);
-        console.log(i);
         break;
       default:
         console.log('Incorrect itemType provided');
@@ -146,11 +144,8 @@ function App() {
   }
   function handleChange(event) {
     const target = event.target;
-    console.log(target)
     const name = target.name;
-    console.log(name)
     let value = target.type === 'checkbox' ? target.checked : target.value;
-    console.log(value)
     if ((name === 'linkedInURL') && (value !== '')) {
       value = 'https://www.linkedin.com/in/' + value;
     }
