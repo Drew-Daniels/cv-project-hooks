@@ -11,7 +11,7 @@ function ProfessionalExpSectionInput(props) {
   } = props;
   
   return (
-    <Card>
+    <Card id='professional-experiences'>
       <Card.Header as='h2'>Professional Experience</Card.Header>
       <Card.Body>
         <Form className='form'>

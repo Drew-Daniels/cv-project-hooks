@@ -16,10 +16,10 @@ function SkillsSectionOutput(props) {
                   <Container className='skill'>
                     <span>{skill.skillDescription}</span>
                     <ButtonGroup className='btn-container'>
-                    <Button size='sm' type='button' className= 'btn-show-on-hover d-flex justify-content-center' onClick={onEdit} style={{ backgroundColor: '#FF6E40', borderColor: 'white'}} >
+                    <Button size='sm' type='button' className= 'd-flex justify-content-center' onClick={onEdit} style={{ backgroundColor: '#FF6E40', borderColor: 'white'}} >
                       <EditIcon />
                     </Button>
-                    <Button size='sm' type='button' className='btn-show-on-hover d-flex justify-content-center' onClick={onDelete} style={{ backgroundColor: '#FF6E40', borderColor: 'white'}} >
+                    <Button size='sm' type='button' className='d-flex justify-content-center' onClick={onDelete} style={{ backgroundColor: '#FF6E40', borderColor: 'white'}} >
                       <DeleteIcon />
                     </Button>
                   </ButtonGroup>

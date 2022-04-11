@@ -21,10 +21,10 @@ function EducationalExpSectionOutput(props) {
                     graduationDate={educationalExp.graduationDate}
                   />
                   <ButtonGroup className='btn-container'>
-                    <Button size='sm' type='button' className='btn-show-on-hover' onClick={onEdit} style={{ backgroundColor: '#FF6E40', borderColor: 'white'}}  >
+                    <Button size='sm' type='button' onClick={onEdit} style={{ backgroundColor: '#FF6E40', borderColor: 'white' }}  >
                       <EditIcon />
                     </Button>
-                    <Button size='sm' type='button' className='btn-show-on-hover' onClick={onDelete} style={{ backgroundColor: '#FF6E40', borderColor: 'white'}}  >
+                    <Button size='sm' type='button' onClick={onDelete} style={{ backgroundColor: '#FF6E40', borderColor: 'white' }}  >
                       <DeleteIcon />
                     </Button>
                   </ButtonGroup>

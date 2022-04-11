@@ -11,10 +11,10 @@ function EducationalExpSectionInput(props) {
   } = props;
 
   return (
-    <Card>
+    <Card id='educational-experiences'>
       <Card.Header as='h2'>Educational Experience</Card.Header>
       <Card.Body>
-        <Form onSubmit={submitHandler} className='form'>
+        <Form onSubmit={submitHandler}>
           <EducationalExpEntryInput 
             educationalExp = {educationalExp}
             changeHandler={changeHandler}

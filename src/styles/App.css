@@ -206,3 +206,6 @@ input:focus {
 .title {
   margin-bottom: 0;
 }
+button > * {
+  pointer-events: none;
+}

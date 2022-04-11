@@ -161,6 +161,7 @@ function App() {
   }
   function handleEducationalExpEdit(event) {
     const educationalExpID = event.target.parentNode.parentNode.id;
+    console.log(event.target)
     const educationalExp = educationalExps.find(
       educationalExp => educationalExp.educationalExpID === educationalExpID
     );
@@ -173,6 +174,7 @@ function App() {
         graduationDate: educationalExp.graduationDate,
         educationalExpID: educationalExp.educationalExpID,
       }));
+    document.getElementById('educational-experiences').scrollIntoView();
   };
   function handleEducationalExpDelete(event) {
     const id = event.target.parentNode.parentNode.id;
@@ -198,6 +200,7 @@ function App() {
       updateEducationalExp(educationalExpID);
     }
     restoreStateDefault('educational');
+    document.getElementById('preview').scrollIntoView();
   };
   // Professional Exp callabacks
   function updateProfessionalExp(professionalExpID) {
@@ -221,6 +224,7 @@ function App() {
         toDate: exp.toDate,
         professionalExpID: exp.professionalExpID,
       }));
+    document.getElementById('professional-experiences').scrollIntoView();
   }
   function handleProfessionalExpDelete(event) {
     const id = event.target.parentNode.parentNode.id;
@@ -244,6 +248,7 @@ function App() {
       updateProfessionalExp(professionalExpID);
     }
     restoreStateDefault('professional');
+    document.getElementById('preview').scrollIntoView();
   };
   // Skills callbacks
   function skillExists(skillID) {
@@ -255,20 +260,19 @@ function App() {
    * @param {*} event 
    */
    function handleSkillEdit(event) {
-    const skillID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+    const skillID = event.target.parentNode.parentNode.parentNode.id;
     const skill = skills.find(skill => skill.skillID === skillID)
     setState(prevState => (
       {...prevState,
-        skillDescription: skill.skillDescription
-      }));
-    setState(prevState => (
-      {...prevState,
+        skillDescription: skill.skillDescription,
         skillID: skill.skillID
       }));
+    document.getElementById('skills').scrollIntoView();
   }
   function handleSkillDelete(event) {
-    const skillID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+    const skillID = event.target.parentNode.parentNode.parentNode.id;
     deleteStateItem(skillID, 'skill');
+    document.getElementById('preview').scrollIntoView();
   }
   /**
    * 
@@ -435,6 +439,7 @@ function App() {
       updateSkill(skillID);
     }
     restoreStateDefault('skill');
+    document.getElementById('preview').scrollIntoView();
   };
 
   function printPreview() {

@@ -11,7 +11,7 @@ function SkillsSectionInput(props) {
   } = props;
 
   return (
-    <Card>
+    <Card id='skills'>
       <Card.Header as='h2'>Skills</Card.Header>
       <Card.Body>
         <Form className='form'>
