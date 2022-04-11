@@ -187,7 +187,9 @@ input:focus {
 }
 .btn-container {
   position: absolute;
-  right: 15em;
+  top: 50%;
+  bottom: 50%;
+  left: 98%;
   display: none;
 }
 .skills-list {
